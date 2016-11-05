@@ -1,0 +1,226 @@
+<link rel="stylesheet" type="text/css" href="css/toubao.css?v=aafaa">
+<div class="mask" style="" >
+	<div class="toast toast_popup"  id="popup" style="">
+		<div class="cell popup_title_cell" style="">
+			<div  class="cell_hd " >姓名</div>
+			<div  class="cell_hd " style="width:300px;">身份证号码</div>
+		</div>
+		<div class="cell popup_content_cell" >
+			<div  class="cell_hd " >巴信君</div>
+			<div  class="cell_hd self" style="width:300px;">370611********7</div>
+		</div>
+		<div class="cell popup_content_cell" >
+			<div  class="cell_hd " >巴信君</div>
+			<div  class="cell_hd " style="width:300px;">370611********7</div>
+		</div>
+	</div>
+</div>
+<div class="main"  data-ng-init="init()">
+	<form class="" role="form" name="order" novalidate>
+		<div class="sub_title ">投保人信息</div>
+		<div class="cell ">
+			<div class="cell_hd cell_hd_border cell_primary">
+				<input type="text" class="ipt" ng-minlength="1" name="username" ng-model="user.username" placeholder="投保人姓名"  required chinese ></div>
+		</div>
+		<div class="cell"  style="color:red"
+            ng-show="order.username.$dirty && order.username.$invalid">
+			<small class="error" 
+            ng-show="order.username.$error.required">姓名必填</small>
+			<small class="error"  ng-show="order.username.$error.chinese">姓名必须是汉字!</small>
+		</div>
+		<div class="cell ">
+			<div class="cell_hd cell_hd_border cell_primary">
+				<input type="text" class="ipt"   ng-minlength="18" ng-maxlength="18" name="social_id" ng-model="user.social_id" placeholder="投保人身份证号码" required></div>
+		</div>
+
+		<div class="cell"  style="color:red"
+            ng-show="order.social_id.$dirty && order.social_id.$invalid ">
+			<small class="error" ng-show="order.social_id.$error.required">身份证必填</small>
+			<small class="error" 
+                ng-show="order.social_id.$error.minlength">身份证必须是18位</small>
+			<small class="error" 
+                ng-show="order.social_id.$error.maxlength">身份证必须是18位</small>
+
+		</div>
+		<div class="cell ">
+			<div class="cell_hd cell_hd_border cell_primary">
+				<input type="number" class="ipt"  ng-minlength="11" ng-maxlength="11" name="mobile" ng-model="user.mobile" placeholder="投保人手机号码" required></div>
+		</div>
+		<div class="cell"  style="color:red"
+            ng-show="order.mobile.$dirty && order.mobile.$invalid ">
+			<small class="error" 
+            ng-show="order.mobile.$error.required">手机号必填</small>
+			<small class="error" 
+                ng-show="order.mobile.$error.minlength">手机号必须是11位数字</small>
+			<small class="error" 
+                ng-show="order.mobile.$error.maxlength">手机号必须是11位数字</small>
+		</div>
+
+		<div class="sub_title ">补充被保险人信息</div>
+		<div class="cell " id="select_toubao">
+
+			<div class="cell_hd  cell_primary" style="padding-right: 30px;">
+				<a href="javascript:void(0)" class="btn   btn_n_primary   btn_small"  data-for="self"  >为自己</a>
+			</div>
+			<div class="cell_hd  cell_primary" >
+				<a href="javascript:void(0)" class="btn  btn_blue_default btn_small" data-for="family" >为家人</a>
+			</div>
+		</div>
+
+		<div id="familyContainer" style="display:none">
+
+			<div class="cell ">
+				<div class="cell_hd cell_hd_border cell_primary" style="border-right:none">
+					<input type="text" class="ipt" ng-minlength="1" name="insurance_username" ng-model="family.insurance_username" placeholder="被保人姓名"  required chinese ></div>
+				<div class="cell_hd cell_hd_border " style="border-left:none" id="person">
+					<img src="img/person.png" style="height:20px;margin-right: 10px;"  />
+				</div>
+			</div>
+
+			<div class="cell"  style="color:red"
+            ng-show="order.insurance_username.$dirty && order.insurance_username.$invalid">
+				<small class="error" 
+            ng-show="order.insurance_username.$error.required">姓名必填</small>
+				<small class="error"  ng-show="order.insurance_username.$error.chinese">姓名必须是汉字!</small>
+			</div>
+
+			<div class="cell ">
+				<div class="cell_hd cell_hd_border cell_primary">
+					<input type="text" class="ipt" ng-minlength="18"  ng-maxlength="18" name="insurance_social_id" ng-model="family.insurance_social_id" placeholder="被保人身份证号码"  required></div>
+			</div>
+
+			<div class="cell"  style="color:red"
+            ng-show="order.insurance_social_id.$dirty && order.insurance_social_id.$invalid ">
+				<small class="error" ng-show="order.insurance_social_id.$error.required">身份证必填</small>
+				<small class="error" 
+                ng-show="order.insurance_social_id.$error.minlength">身份证必须是18位</small>
+				<small class="error" 
+                ng-show="order.insurance_social_id.$error.maxlength">身份证必须是18位</small>
+
+			</div>
+
+			<div class="cell ">
+				<div class="cell_hd cell_hd_border cell_primary">
+					<input type="text" class="ipt"   ng-minlength="11" ng-maxlength="11"  name="insurance_mobile" ng-model="family.insurance_mobile " placeholder="手机号码" required></div>
+			</div>
+			<div class="cell"  style="color:red"
+            ng-show="order.insurance_mobile.$dirty && order.insurance_mobile.$invalid ">
+				<small class="error" 
+            ng-show="order.insurance_mobile.$error.required">手机号必填</small>
+				<small class="error" 
+                ng-show="order.insurance_mobile.$error.minlength">手机号必须是11位数字</small>
+				<small class="error" 
+                ng-show="order.insurance_mobile.$error.maxlength">手机号必须是11位数字</small>
+			</div>
+
+			<div class="sub_title ">被保人职业分类</div>
+			<div class="cell ">
+				<div class="cell_hd cell_hd_border cell_primary"  style="border-right:none;">
+					<select placeholder="请选择职业"   ng-change="getFamilySecondJob()"  class="weui_select" name="family_job_1"  ng-options="option.name for option in data.availableFamilyOptions_1 track by option.id"   ng-model="data.selectedFamilyOption_1" ></select>
+				</div>
+				<div class="cell_hd cell_hd_border cell_primary"  style="border-right:none;">
+					<select placeholder="请选择职业"   ng-change="getFamilyThirdJob()"   class="weui_select" name="family_job_2"  ng-options="option.name for option in data.availableFamilyOptions_2 track by option.id"   ng-model="data.selectedFamilyOption_2" ></select>
+				</div>
+				<div class="cell_hd cell_hd_border cell_primary">
+					<select placeholder="请选择职业"    class="weui_select" name="family_ob_3"  ng-options="option.name for option in data.availableFamilyOptions_3 track by option.id"   ng-model="data.selectedFamilyOption_3"  required=""></select>
+				</div>
+			</div>
+
+		</div>
+
+		<div id="job_container">
+			<div class="sub_title " >职业分类</div>
+			<div class="cell ">
+				<div class="cell_hd cell_hd_border cell_primary"  style="border-right:none;">
+					<select placeholder="请选择职业"   ng-change="getSecondJob()"  class="weui_select" name="job_1"  ng-options="option.name for option in data.availableOptions_1 track by option.id"   ng-model="data.selectedOption_1" ></select>
+				</div>
+				<div class="cell_hd cell_hd_border cell_primary"  style="border-right:none;">
+					<select placeholder="请选择职业"   ng-change="getThirdJob()"   class="weui_select" name="job_2"  ng-options="option.name for option in data.availableOptions_2 track by option.id"   ng-model="data.selectedOption_2" ></select>
+				</div>
+				<div class="cell_hd cell_hd_border cell_primary">
+					<select placeholder="请选择职业"    class="weui_select" name="job_3"  ng-options="option.name for option in data.availableOptions_3 track by option.id"   ng-model="data.selectedOption_3"  required=""></select>
+				</div>
+			</div>
+		</div>
+		<div class="sub_title ">保险生效时间</div>
+		<div class="cell ">
+			<div class="cell_hd cell_hd_border cell_primary">
+				<input type="date" class="ipt"  name="effective_date" ng-model="user.effective_date"  placeholder="yyyy-MM-dd" min="{{minDate | date:'yyyyMMdd'}}"  placeholder="保险生效时间" required ></div>
+		</div>
+
+		<div class="cell"  style="color:red"
+            ng-show="order.effective_date.$dirty && order.effective_date.$invalid ">
+			<small class="error" ng-show="order.effective_date.$error.required">生效日期必填</small>
+			<small class="error" ng-show="order.effective_date.$error.min">生效日期最早从明天开始</small>
+		</div>
+
+		<!--
+		<div class="sub_title ">保险终止时间</div>
+	<div class="cell ">
+		<div class="cell_hd cell_hd_border cell_primary">
+			<input type="date" class="ipt"  name="ineffective_date" ng-model="user.ineffective_date" min="{{minDate | date:'yyyyMMdd'}}" placeholder="保险终止时间"  ></div>
+	</div>
+	<div class="cell"  style="color:red"
+            ng-show="order.ineffective_date.$dirty && order.ineffective_date.$invalid ">
+		<small class="error" ng-show="order.ineffective_date.$error.required">终止日期必填</small>
+		<small class="error" ng-show="order.ineffective_date.$error.min">终止日期最早从明天开始</small>
+	</div>
+	-->
+	<div class="cell_title " style="font-size:20px;">
+		保费：
+		<span class="red">{{money/100 | number}}</span>
+		元
+		<span class="fr">共计{{danwei}}</span>
+		<div class="line"></div>
+	</div>
+
+	<div class="cell_title ">
+		<input type="checkbox" style="width:20px;height:20px; vertical-align:middle;" ng-model="know_contract" name="know_contract"  >
+		我已阅读
+		<a href="/ybwx-web/api/web_page/{{params.information_page_id}}" target="_blank">
+			<span class="strong">投保须知</span>
+		</a>
+		和
+		<a href="/ybwx-web/api/web_page/{{params.provision_page_id}}" target="_blank">
+			<span class="strong">产品条款</span>
+		</a>
+		<div class="line"></div>
+	</div>
+	<div class="cell">
+		<a href="javascript:void(0)" class="btn btn_n_primary "  ng-click="submitbt()" id="submitButton" style="">确认投保</a>
+
+	</div>
+</form>
+
+</div>
+<script type="text/javascript">
+	$("#person").click(function(){
+		$(".mask").show();
+	})
+	$(".mask").click(function(){
+		$(this).hide();
+	})
+	$("#select_toubao").find("a").click(function(){
+		$("#select_toubao").find("a").removeClass("btn_n_primary").addClass("btn_blue_default");
+		$(this).removeClass("btn_blue_default");
+		$(this).addClass("btn_n_primary");
+		if($(this).attr("data-for")==="family"){
+			$("#familyContainer").show();
+			/*
+			$("#job_container").find("select").parent(".cell_hd").css("background-color","#f0f0f0");
+			$("#job_container").find("select").css("background-color","#f0f0f0");
+			$("#job_container").find("select").prop('disabled', 'disabled');	*/
+			$("#job_container").hide();
+		}else{
+			$("#familyContainer").hide();
+			/*
+			$("#job_container").find("select").parent(".cell_hd").css("background-color","#fff");
+			$("#job_container").find("select").css("background-color","#fff");
+			$("#job_container").find("select").prop('disabled',false);	
+			*/
+			$("#job_container").show();
+		}
+
+	})
+
+</script>

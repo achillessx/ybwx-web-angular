@@ -1,0 +1,67 @@
+<style>
+.small_btn{
+	line-height:40px;
+	height:40px;
+}
+
+#coupons_container{
+	color:#7f7567;
+	display:none;
+}
+.recommend_times{
+	color:#be2424;
+}
+.huodong_text{
+	color:#7f7567;
+	margin:15px 0 15px 0;
+	font-size:14px;
+}
+.tail_container{
+	background-color:#FFF;margin-bottom:15px;
+}
+.qrcode_intrd{
+	color:#333;margin:0;padding:14px 0 14px;
+}
+</style>
+<div id="wrapper" class="wrapper warm_bg">
+	<header class="tg_header"> </header>
+	<div class="container" >
+		<div class="sub_container warm_bg_2" >
+			<img src="wx_share/img/tip_2.png?v=1" class="tip">
+			<div class="gift_container warm_bg_2">
+				<div class="fr">
+					<p class="tg_title"><b>天安人寿</b>100万航空意外险</p>
+					<p class="tg_sub_title">飞机人身意外伤害身故及</p>
+					<p class="tg_sub_title">伤残最高赔付100万元</p>
+				</div>
+			  <div class="cell clr" style="padding-top:20px;">
+                                        <div class="cell_hd " style="width:1000px;border:none">
+                                                <a href="javascript:void(0)" class="btn btn_happy small_btn " ng-click="addCoupon()" >免费领取</a>
+                                        </div>
+                                        <div class="cell_hd" style="width:200px;border:none"></div>
+
+                                        <div class="cell_hd " style="width:1000px;border:none">
+                                                <a href="javascript:void(0)" class="btn btn_warning small_btn"    ng-click="showShareTip()" >邀请好友</a>
+                                        </div>
+                </div>
+			</div>
+		</div>
+		<div class="sub_container border_container" >
+		    <img src="wx_share/img/link.png?v=1" class="linktip">
+			<p class="share_text tl" >
+				每3个好友成功领取，您就可再免费领取1张保险券，最多可领取12张。<br/><span id="coupons_container" >(已有<span class="recommend_times">{{data.recommend_times}}</span>位好友成功领取，还可领取{{data.remain_times}}张保险券。)</span>
+			</p>
+		</div>
+
+	<p  class="huodong_text">
+			活动时间：2016.02.01 - 2016.03.31	
+	</p>
+
+	 <div class="qrcode_container">
+					<img src="wx_share/img/qrcode_red.png" style="width:100%;" >
+	 </div>
+
+	</div>
+	
+</div>
+<!-- /wrapper -->

@@ -1,0 +1,44 @@
+<style>
+.bd_word_container{
+ position:relative;top:200px;color:#DF4243;font-weight:bold;text-align:center;
+}
+.bd_title{
+margin:0;font-size:15px;
+}
+.bd_number{
+margin:0;font-size:20px;	
+}
+.success_share_word{
+	color:#F05754;
+    padding:0.6rem 0.2rem 0 0.2rem;margin:0.2rem;font-size:15px;
+}
+.text_tip{
+	color:#333333;
+	margin:0;padding:0;text-align:center;
+	
+}
+</style>
+<div id="wrapper" class="wrapper ">
+	<header class="success_coupon_header">
+			<div style="position:absolute ; width: 100%; bottom:20px;">
+			<p class="text_tip" > 恭喜您成功领取 <span style="color:#be2424;font-weight:bold;">1</span> 张保险劵 !</p>
+			<p class="text_tip"  > 请到「诺贝」微信公众号，「保险券」菜单下使用。</p>
+			</div>
+	</header>
+	<!-- /header -->
+	<div  class="container " >
+ 	    	 <div class="cell" style="clear:both">
+					<div class="cell_hd " style="width:2000px;border:none">
+						<a href="javascript:void(0)" class="btn btn_happy "  ng-click="showShareTip()">邀请好友免费领取</a>
+					</div>
+			</div>
+			<p class="share_text"  style="margin-top:0;padding:0;">
+				每3个好友成功领取，您就可再免费领取1张保险券，最多可领取12张。
+		</p>
+			
+		 <div class="qrcode_container">
+					<img src="wx_share/img/qrcode_red.png" style="width:100%;" >
+		 </div>
+	</div>
+</div>
+<!-- /wrapper -->

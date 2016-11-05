@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en" ng-app="wxListApp">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+  <meta name="viewport"content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <title>我的保单</title>
+  <link rel="stylesheet" href="bower_components/normalize-css/normalize.css">
+  <link rel="stylesheet" href="wx_list/css/app.css?rev=be62dd38007126f664bf3b7f7182d53a">
+
+</head>
+<body>
+
+<div id="wrapper" class="wrapper">
+    <div class="cell" style="color:#4A4A4A">
+      <div class="cell_hd  cell_primary item " ng-class='{"red":tog==""}' ng-click='tog=""'>全&nbsp;&nbsp;&nbsp;部</div>
+      <div class="cell_hd  cell_primary item" ng-class='{"red":tog=="4"}' ng-click='tog="4"'>待投保</div>
+      <div class="cell_hd  cell_primary item" ng-class='{"red":tog=="6"}' ng-click='tog="6"'>未生效</div>
+      <div class="cell_hd  cell_primary item" ng-class='{"red":tog=="6"}' ng-click='tog="6"'>保障中</div>
+    </div>
+      <div class=" gradient-shadow" ></div>
+      <p class="default_text" ng-hide="filtered.length>0" style="display:none">暂时没有保单</p>
+    <ul class="ul_container"  >
+      
+      <li class="list_item" ng-click="goDetail(order.order_no)"  ng-repeat="order in filtered = (orders |filter:filterFn )">
+      <!--{{order.testDate |  date:'yyyy-MM-dd HH:mm:ss'}}-->
+        <div class="order_title" style="position:relative">订单号:324234234 <span class="bd_status">2016-02-25</span></div>
+        <div class="line"></div>
+        <div>
+          <div class="">
+            <p style="position:relative;margin-top:13px;color:#6caaea">泰康人寿100万航空意外险 <span class="bd_status_text" style="position:absolute;right:0" >未生效</span></p>
+            <p>被保人:张三</p>
+            <p>保险金额:100</p>
+            <p>保险期间:2016/01/16 00:00 - 2016/01/18 01:00</p>
+          </div>
+          <div class="line" style="clear:both;"></div>
+        </div>
+        
+      </li>
+      
+      <li class="list_item" ng-click="goDetail(order.order_no)"  ng-repeat="order in filtered = (orders |filter:filterFn )">
+      <!--{{order.testDate |  date:'yyyy-MM-dd HH:mm:ss'}}-->
+        <div class="order_title" style="position:relative">订单号:324234234 <span class="bd_status">2016-02-25</span></div>
+        <div class="line"></div>
+        <div>
+          <div class="">
+            <p style="position:relative;margin-top:13px;color:#6caaea">泰康人寿100万航空意外险 <span class="bd_status_text" style="position:absolute;right:0" >未生效</span></p>
+            <p>被保人:张三</p>
+            <p>保险金额:100</p>
+            <p>保险期间:2016/01/16 00:00 - 2016/01/18 01:00</p>
+          </div>
+          <div class="line" style="clear:both;"></div>
+          <div >
+            <p style="position:relative;margin-top:13px;color:#6caaea">泰康人寿100万航空意外险 <span class="bd_status_text" style="position:absolute;right:0" >未生效</span></p>
+            <p>被保人:张三</p>
+            <p>保险金额:100</p>
+            <p>保险期间:2016/01/16 00:00 - 2016/01/18 01:00</p>
+          </div>
+          <div class="line" style="clear:both;"></div>
+          <div style="padding:10px 0;">未支付:￥<span style="color:#f57590">0.00</span><div style="float:right;padding:5px;border:1px solid #ff0000;background-color: #ffe8e8;color:#584f4f">立即支付</div></div>
+        </div>
+      </li>
+
+    </ul>
+  </div>
+</body>
+</html>

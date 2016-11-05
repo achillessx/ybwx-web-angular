@@ -1,0 +1,79 @@
+<link rel="stylesheet" href="css/product_detail.css?v=aaadg">
+<header>
+  <img ng-src="{{data.large_image}}"  />
+</header>
+<div  class="container" data-ng-init="init()">
+  <div class="main-title">{{data.insurance_name}}</div>
+  <h4>
+    <span class="subtitle">&nbsp;{{data.insurance_second_type}}&nbsp;&nbsp;</span>
+    <span class="fr">
+      查看
+      <a href="ybwx-web/api/web_page/{{data.information_page_id}}" target="_blank">
+        <span class="blue">投保须知</span>
+      </a>
+    </span>
+  </h4>
+  <table id="title-table" ng-show="data.insurance_plans.length>
+    1"   data-current-select-id="{{data.insurance_plans[0].id}}">
+    <tr  >
+      <td   ng-class="{'choose':$index==0}" ng-repeat="plan in data.insurance_plans" data-index="{{$index}}" data-id="{{plan.id}}" ng-click="headSelect($event, plan)">{{plan.name}}</td>
+    </tr>
+  </table>
+
+  <table class="content-table" id="content_{{$index}}" ng-repeat="plan in data.insurance_plans" ng-show="selectTable==$index">
+    <tr>
+      <th width="70%">保障范围</th>
+      <th>保障额度</th>
+    </tr>
+
+    <tr ng-repeat="item in plan.coverage_beans">
+      <td class="td-left" style="cursor: pointer;">
+        {{item.name}}
+        <img src="wx_share/img/help.jpg"  class="help-img" title="{{item.description}}"></td>
+      <td>{{item.sum_insured/100 | number}}元{{item.danwei}}</td>
+    </tr>
+  </table>
+  <div class="introd-sum">
+    价格:
+    <span class="red">{{money/100 | number}}</span>
+    元起
+    <span class="fr">
+      本产品由
+      <span class="blue">{{data.insurance_company_name}}</span>
+      承保并负责理赔
+    </span>
+  </div>
+  <div class="line"></div>
+  <h4>
+    <span class="subtitle">&nbsp;产品特色&nbsp;&nbsp;</span>
+  </h4>
+  <div id="detail-template"></div>
+</div>
+<footer></footer>
+<div class="cell">
+  <a href="javascript:void(0)" ng-click="submit(data.information_page_id,data.provision_page_id)" class="btn btn_n_primary btn-fixed" style="bottom:0;border-radius: 0;">立即投保</a>
+</div>
+<div class="mask " id="popup">
+  <div class="toast"></div>
+</div>
+<script>
+
+$(function(){
+ $("body").on("click",".td-left",function(){
+    $("#popup").find(".toast").html($(this).find("img").attr("title"));
+    $("#popup").show()
+ });
+ $(".mask").click(function(){
+    $(this).hide(); 
+ });
+})
+
+
+ /*
+ $("#title-table").on("click","td",function(){
+     $("#title-table").find("td").removeClass("choose");
+     $(this).addClass("choose");
+     var index = $(this).attr("data-index");
+     $("#content_"+index).show();
+ })*/
+</script>

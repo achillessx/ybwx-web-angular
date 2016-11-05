@@ -1,0 +1,144 @@
+<div id="wrapper" class="wrapper">
+
+	<header class="header">
+		 <a href="#/" class="header-return">
+				<img src="wx_share/img/tg_return.png" style=""/>
+			</a>
+			<div class="header-title">
+					诺贝赠送泰康e顺出行无忧交通意外险
+			</div>
+			<div class="header-sub-title">
+				<div class="fl">
+					<img src="wx_share/img/tree.png" />
+				</div>
+				<div class="fl" style="font-size:12px;">
+					<p>1分钱,7天保障!春节出行无忧</p>
+					<p>50万飞机+20万火车+10万自驾</p>
+				</div>
+			</div>
+		<div> 
+		</div>
+
+	</header>
+	<!-- /header -->
+	<div style="" class="container">
+		<form class="" role="form" name="registration" novalidate>
+			<div class="cell_title strong">
+				请填写被保人信息
+				<div class="line"></div>
+			</div>
+
+			<div class="cell_sub_title ">姓名</div>
+			<div class="cell">
+				<div class="cell_hd cell_hd_border cell_primary">
+					<input type="text" class="ipt" ng-minlength="1"  name="username" ng-model="user.username" required chinese />
+				</div>
+			</div>
+			<div class="cell"  style="color:red"
+            ng-show="registration.username.$dirty && registration.username.$invalid || username_server_reason">
+					<small class="error" 
+            ng-show="registration.username.$error.required">用户名必填</small>
+            	<small class="error"  ng-show="registration.username.$error.chinese">用户名必须是汉字!</small>
+                    <small class="error" ng-show="username_server_reason">{{username_server_reason}}</small>
+			</div>
+
+            <div class="cell_sub_title ">身份证</div>
+
+
+			<div class="cell ">
+				<div class="cell_hd cell_hd_border cell_primary">
+					<input type="text" class="ipt"  name="social_id" ng-minlength="18" ng-maxlength="18" ng-model="user.social_id" required />
+				</div>
+			</div>
+
+
+			<div class="cell"  style="color:red"
+            ng-show="registration.social_id.$dirty && registration.social_id.$invalid || card_numer_server_reason">
+					<small class="error" ng-show="registration.social_id.$error.required">证件号必填</small>
+					<small class="error" 
+                ng-show="registration.social_id.$error.minlength">身份证必须是18位</small>
+					<small class="error" 
+                ng-show="registration.social_id.$error.maxlength">身份证必须是18位</small>
+                    <small class="error" ng-show="card_numer_server_reason">{{card_numer_server_reason}}</small>
+			</div>
+			<div class="cell_sub_title ">手机号码</div>
+			<div class="cell">
+				<div class="cell_hd cell_hd_border cell_primary">
+					<input type="number" class="ipt" ng-minlength="11" ng-maxlength="11" name="mobile" ng-model="user.mobile" required />
+				</div>
+			</div>
+			<div class="cell"  style="color:red"
+            ng-show="registration.mobile.$dirty && registration.mobile.$invalid || mobile_server_reason">
+					<small class="error" 
+            ng-show="registration.mobile.$error.required">手机号必填</small>
+					<small class="error" 
+                ng-show="registration.mobile.$error.minlength">手机号必须是11位数字</small>
+					<small class="error" 
+                ng-show="registration.mobile.$error.maxlength">手机号必须是11位数字</small>
+                    <small class="error" ng-show="mobile_server_reason">{{mobile_server_reason}}</small>
+			</div>
+
+			<div class="cell_sub_title ">保障期间</div>
+			<div class="cell ">
+				<div class="cell_hd cell_hd_border cell_primary weui_select_before" style="border-right:none">
+					<input type="date" class="ipt "  placeholder="yyyy-MM-dd" min="{{date | date:'yyyy-MM-dd'}}" name="insurance_date" ng-model="user.insurance_date" required  />
+				</div>
+				<div class="cell_hd cell_hd_border " style="color:#D9D9D9;padding:0 4px;border-left:none">
+					 0点到次日0点 共1天
+				</div>
+			</div>
+			<div class="cell"  style="color:red"
+            ng-show="registration.insurance_date.$dirty && registration.insurance_date.$invalid || insurance_date_server_reason">
+					<small class="error" 
+            ng-show="registration.insurance_date.$error.required">保障日期必填</small>
+            	<small class="error" 
+                ng-show="registration.insurance_date.$error.min">保障日期最早从今天开始</small>
+			
+                    <small class="error" ng-show="insurance_date_server_reason">{{insurance_date_server_reason}}</small>
+			</div>
+			<div class="cell_title " style="font-size:15px;">
+				保费：原价<span class="strong">20</span>元 <span class="fr">由<span class="strong">诺贝保险管家</span>免费赠送</span>
+				<div class="line"></div>
+			</div>
+			<div class="cell_title ">
+				<input type="checkbox" style="width:20px;height:20px; vertical-align:middle;"  ng-model="user.know_contract" name="know_contract" required >我已阅读<span class="strong">投保须知</span>和<span class="strong">产品条款</span>
+				<div class="line"></div>
+			</div>
+			<div class="cell_title " style="text-align:center;">
+				总费用:<span class="red">￥0.01元</span>
+				<div class="line"></div>
+			</div>
+			<div class="cell"  style="color:red" ng-show="server_reason">
+                    <small class="error" ng-show="server_reason">{{server_reason}}</small>
+			</div>
+			
+			<div class="cell" >
+				<a href="javascript:void(0)" class=""  ng-class="registration.$invalid  ? 'btn btn_primary btn_disabled' : 'btn btn_primary' "  ng-click='submit()' id="submitButton"  style="">确认并支付</a>
+			
+			</div>
+		</form>
+
+		<div style="display:none">
+				<form action="https://api.ipaynow.cn" method="POST"  role="form" id="payForm"   ngc-done="'scope.ngcready'">
+					功能码：<input style="display:none" type=text name="funcode" value="{{data.funcode}}" readonly/>
+					应用ID:<input  style="display:none"  type=text name="appId" value="{{data.appId}}" readonly/>
+					商户订单号：<input   style="display:none" type=text name="mhtOrderNo" value="{{data.mhtOrderNo}}" readonly/>
+					商户订单名称：<input   style="display:none"  type=text name="mhtOrderName" value="{{data.mhtOrderName}}" readonly/>
+					币种：<input  style="display:none"  type=text name="mhtCurrencyType" value="{{data.mhtCurrencyType}}" readonly/>
+					金额：<input  style="display:none"  type=text name="mhtOrderAmt" value="{{data.mhtOrderAmt}}" readonly/>
+					订单类型：<input   style="display:none"  type=text name="mhtOrderType" value="{{data.mhtOrderType}}" readonly/>
+					订单时间：<input style="display:none"  type=text name="mhtOrderStartTime" value="{{data.mhtOrderStartTime}}" readonly/>
+					订单详情：<input type=text name="mhtOrderDetail"  value="{{data.mhtOrderDetail}}"  readonly/><br>
+					后台通知URL：<input  style="display:none"  type=text name="notifyUrl" value="{{data.notifyUrl}}" readonly/>
+					前台通知URL：<input  style="display:none"  type=text name="frontNotifyUrl" value="{{data.frontNotifyUrl}}" readonly/>
+					字符集：<input  style="display:none"  type=text name="mhtCharset" value="{{data.mhtCharset}}" readonly/>
+					设备类型：<input  style="display:none"  type=text name="deviceType" value="{{data.deviceType}}" readonly/>
+					现在支付网关号：<input type=text name="payChannelType" value="{{data.payChannelType}}">
+					签名类型：<input   style="display:none"  type=text name="mhtSignType" value="{{data.mhtSignType}}" readonly/>
+					数字签名：<input  style="display:none"  type=text name="mhtSignature" value="{{data.mhtSignature}}" readonly/>
+				</form>
+			</div>
+	</div>
+
+</div>
+<!-- /wrapper -->

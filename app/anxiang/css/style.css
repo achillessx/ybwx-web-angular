@@ -1,0 +1,238 @@
+body{
+	  font: 14px Arial,Microsoft YaHei,SimHei,Helvetica,sans-serif;
+	background-color: #fff8e0;
+}
+select {-webkit-appearance:none;appearance:none; -webkit-border-radius: 0px; /*去除input默认样式*/}
+.head{
+	max-height: 180px;width:100%;
+}
+.fr{
+	float:right;
+}
+.main{
+	padding: 5px 20px 20px;
+}
+.red{
+	color:#e45959;
+}
+.sub_title {
+  color: #565656;
+  text-align:justify;
+  margin-top: 9px;
+  margin-bottom: 2px;
+  font-size: 16px;
+  position: relative;
+}
+.cell_lable_text{
+  width:600px;
+}
+.cell{
+  font-size: 12px;
+}
+.sub_sub_title{
+	font-size:12px;
+	margin-top:20px;
+	line-height: 20px;
+}
+.line
+{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+
+    width: 100%;
+    height: 1px;
+
+    -webkit-transform: scaleY(.5);
+            transform: scaleY(.5);
+    -webkit-transform-origin: 0 0;
+            transform-origin: 0 0;
+
+    border-top: 1px solid #d9d9d9;
+}
+.weui_select {
+
+  -webkit-appearance: none;
+  border: 0;
+  outline: 0;
+  background-color: transparent;
+  width: 100%;
+  font-size: inherit;
+  height: 44px;
+  position: relative;
+  z-index: 1;
+  padding-left: 15px;
+}
+.cell
+{
+  
+
+    position: relative; /* 老版本语法: Safari, iOS, Android browser, older WebKit browsers. */ /* 老版本语法: Firefox (buggy) */
+
+    display: block;
+
+}
+.cell
+.cell_primary
+{
+    width: 2000px;
+
+    white-space: normal;
+}
+.cell_hd
+{
+     display: table-cell;
+    vertical-align: middle;
+    white-space: nowrap;
+    word-wrap: break-word;
+    word-break: break-all;
+   
+    height:45px;
+    position: relative;
+}
+.cell_hd_border{
+   border:1px solid #9c9c9c;
+}
+.cell_bg{
+	padding-right:5px;
+	background: #fff url(../img/right_btn.jpg) no-repeat 98% 50%;
+	background-size: 10px;
+
+}
+.cell_select_bg{
+	padding-right:5px;
+	background: #e45959 url(../img/down_btn.jpg) no-repeat 98% 50%;
+	background-size: 10px;
+	color:#fff;
+}
+.result_bg{
+	background-color:#fff;
+}
+.ipt
+{
+    font-size: 15px;
+    line-height: 2.33333333;
+
+    box-sizing: border-box;
+    width: 100%;
+
+    color: inherit;
+    border: 0;
+    outline: 0;
+    background-color: transparent;
+
+    -webkit-appearance: none;
+}
+.ipt::-webkit-outer-spin-button,
+.ipt::-webkit-inner-spin-button
+{
+    margin: 0;
+
+    -webkit-appearance: none;
+}
+
+.btn
+{
+    font-size: 18px;
+    line-height: 50px;
+
+    position: relative;
+    /*
+    font-size: 18px;
+    line-height: 2.33333333;*/
+
+    display: block;
+    overflow: hidden;
+
+    box-sizing: border-box;
+
+    text-align: center;
+    text-decoration: none;
+
+    color: #fff;
+    border-radius: 2px;
+
+
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+.btn_n_primary{
+    height: 50px;
+    margin: 15px 0;
+    background-color:#d22f2f;
+    
+}
+.btn_n_primary:active
+{
+     background-color: #E24543;
+}
+.fee{
+	font-size: 13px;text-align: right;padding-right:10px;
+}
+.border_left_none{
+	border-left: none;
+}
+.border_right_none{
+	border-right: none;
+}
+.border_bottom_none{
+	border-bottom: none;
+}
+
+
+.weui_toast {
+  position: fixed;
+  z-index: 3;
+  width: 7.6em;
+  min-height: 7.6em;
+  top: 180px;
+  left: 50%;
+  margin-left: -3.8em;
+  background: rgba(40, 40, 40, 0.75);
+  text-align: center;
+  border-radius: 5px;
+  color: #FFFFFF;
+}
+.weui_icon_toast {
+  margin: 22px 0 0;
+  display: block;
+}
+.weui_icon_toast:before {
+  content: '\EA08';
+  color: #FFFFFF;
+  font-size: 55px;
+}
+.weui_toast_content {
+  margin: 0 0 0px;
+}
+.weui_loading_toast .weui_toast_content {
+  margin-top: 64%;
+  font-size: 14px;
+}
+.weui_mask_transparent {
+  position: fixed;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
+.weui_toast_content {
+  margin: 0 0 15px;
+}
+.weui_loading_toast .weui_toast_content {
+  margin-top: 64%;
+  font-size: 14px;
+}
+  .content-table{
+  width:100%;
+  border-collapse:collapse;
+   background-color:#fff;
+}
+.content-table td{
+  border:1px solid #b1b1b1;
+  padding: 10px;
+}
+.content-table .td-right{
+  text-align: right;
+}
+[ng\:cloak],[ng-cloak],.ng-cloak{display:none !important}

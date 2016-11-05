@@ -1,0 +1,111 @@
+<style>
+body{
+	background-color: #f7f7f7;
+	font-size:16px;
+}
+.info_container{
+	background-color: #fff;
+	list-style: none;
+	margin:0;
+	padding-left:40px;
+	padding-top: 5px;
+	color:#242424;
+}
+.info_container li{
+	padding:20px 0;
+}
+.pay_container{
+	background-color: #fff;
+	padding:0 15px 20px  15px;
+	height：250px;
+	margin-top: 16px;
+}
+.pay_item{
+	position: relative;height:90px;line-height: 90px;
+}
+.union_logo{
+  height:40px;margin-right: 20px;float:left;margin-top:25px;	
+}
+.weixin_logo{
+	height:50px;margin-top:22px;margin-right: 29px;float:left;
+}
+.pay_item{
+	background: #fff url(img/unchoose.jpg) no-repeat right;
+	background-size:30px; 
+}
+.choose{
+	background: #fff url(img/choose.jpg) no-repeat right;
+	background-size:30px; 
+}
+.introd{
+	  position: relative;height:50px;line-height: 50px;
+}
+</style>
+<ul class="info_container">
+	<li>订单编号:{{order_no}}</li>
+	<li>产品名称:{{insurance_plan_name}}</li>
+	<li>支付金额:{{order_amount/100 | number}}元</li>
+</ul>
+<div class="pay_container">
+	<div class="introd">
+		选择支付方式：
+		<div class="line"></div>
+	</div>
+	<div  class="pay_item choose" data-channel-type="3" ng-click="pay($event)">
+		<img src="img/weixin.png" class="weixin_logo"/>
+		微信支付
+		<div class="line"></div>
+	</div>
+	<div  class="pay_item " data-channel-type="1" ng-click="pay($event)">
+		<img src="img/unionpay.jpg" class="union_logo"/>
+		银行卡快捷
+		<div class="line"></div>
+	</div>
+	<form action="https://api.ipaynow.cn" method="POST"  role="form" id="wechatPayForm" style="display:none" >
+		功能码：
+		<input  type=text name="funcode" value="{{ipaynow_pay_request.funcode}}" readonly/>
+		应用ID:
+		<input    type=text name="appId" value="{{ipaynow_pay_request.appId}}" readonly/>
+		商户订单号：
+		<input    type=text name="mhtOrderNo" value="{{ipaynow_pay_request.mhtOrderNo}}" readonly/>
+		商户订单名称：
+		<input     type=text name="mhtOrderName" value="{{ipaynow_pay_request.mhtOrderName}}" readonly/>
+		币种：
+		<input    type=text name="mhtCurrencyType" value="{{ipaynow_pay_request.mhtCurrencyType}}" readonly/>
+		金额：
+		<input    type=text name="mhtOrderAmt" value="{{ipaynow_pay_request.mhtOrderAmt}}" readonly/>
+		订单类型：
+		<input     type=text name="mhtOrderType" value="{{ipaynow_pay_request.mhtOrderType}}" readonly/>
+		订单时间：
+		<input   type=text name="mhtOrderStartTime" value="{{ipaynow_pay_request.mhtOrderStartTime}}" readonly/>
+		订单详情：
+		<input type=text name="mhtOrderDetail"  value="{{ipaynow_pay_request.mhtOrderDetail}}"  readonly/>
+		<br>
+		后台通知URL：
+		<input    type=text name="notifyUrl" value="{{ipaynow_pay_request.notifyUrl}}" readonly/>
+		前台通知URL：
+		<input    type=text name="frontNotifyUrl" value="{{ipaynow_pay_request.frontNotifyUrl}}" readonly/>
+		字符集：
+		<input    type=text name="mhtCharset" value="{{ipaynow_pay_request.mhtCharset}}" readonly/>
+		设备类型：
+		<input    type=text name="deviceType" value="{{ipaynow_pay_request.deviceType}}" readonly/>
+		签名类型：
+		<input   style="display:none"  type=text name="mhtSignType" value="{{ipaynow_pay_request.mhtSignType}}" readonly/>
+		数字签名：
+		<input  style="display:none"  type=text name="mhtSignature" value="{{ipaynow_pay_request.mhtSignature}}" readonly/>
+
+	</form>
+</div>
+<div style="padding:30px 45px;">
+	<div class="cell" >
+		<a href="javascript:void(0)" class="btn btn_n_primary " ng-click="submit()">立即支付</a>
+	</div>
+</div>
+<script type="text/javascript">
+/*
+ $(".pay_item").click(function(){
+ 	$(".pay_item").removeClass("choose");
+ 	$(this).addClass("choose");
+ })	*/
+
+</script>

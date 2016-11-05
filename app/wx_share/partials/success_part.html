@@ -1,0 +1,73 @@
+<style>
+.bd_word_container{
+ position:relative;top:200px;color:#DF4243;font-weight:bold;text-align:center;
+}
+.bd_title{
+margin:0;font-size:15px;
+}
+.bd_number{
+margin:0;font-size:20px;	
+}
+.success_share_word{
+	color:#F05754;
+    padding:0.6rem 0.2rem 0 0.2rem;margin:0.2rem;font-size:15px;
+}
+.email_input{
+	background-color:#FFF;
+	color:#000;
+	text-indent:20px;
+	font-size:14px;
+	height:36px;
+	line-height:36px;
+}
+.qrcode_container_success{
+	clear:both;margin:20px 0;padding:20px;position:relative;
+	border:1px solid red;
+}
+.send_bd{
+	height:36px;
+	line-height:36px;
+	font-size:16px;
+}
+</style>
+<div id="wrapper" class="wrapper ">
+	<header class="success_header">
+			<div  class="container">
+		<form class="" role="form" name="sendForm" novalidate>
+		   	<div class="cell "  style="padding-top:180px;">
+		   	    <div class="cell_hd cell_primary" style="" >
+					<input type="email" class="ipt email_input" ng-model="user.email" name="email"  onfocus="this.placeholder = ''" onblur="this.placeholder = '输入电子邮箱'" placeholder="输入电子邮箱" required />
+				</div>
+				 <div class="cell_hd " style="width:400px;border:none">
+                                                <a href="javascript:void(0)" class="btn btn_happy send_bd" style="" ng-click="send_bd()" >发送电子保单</a>
+                </div>
+			</div>
+					<div class="cell"  style="color:red"
+            ng-show="sendForm.email.$dirty && sendForm.email.$invalid ">
+					<small class="error" ng-show="sendForm.email.$error.required">邮箱必填</small>
+					<small class="error" ng-show="sendForm.email.$error.email">邮件格式不正确</small>
+			</div>
+		</form>
+		</div>
+	</header>
+	<!-- /header -->
+	<div  class="container " >
+
+			  <div class="cell" style="clear:both;margin-top:30px;">
+                                        <div class="cell_hd " style="width:2000px;border:none">
+                                                <a href="javascript:void(0)" class="btn btn_happy " ng-click="goList()" >查看保单</a>
+                                        </div>
+                                        <div class="cell_hd" style="width:300px;border:none"></div>
+
+                                        <div class="cell_hd " style="width:2000px;border:none">
+                                                <a href="javascript:void(0)" class="btn btn_warning"  ng-click="showShareTip()" >立即分享</a>
+                                        </div>
+
+                </div>
+                <div class="qrcode_container_success red" >
+                  <img src="wx_share/img/link.png?v=1" class="linktip">
+                                      每3个好友成功领取，您就可再免费领取1张保险券，最多可领取12张。
+                </div>
+	</div>
+</div>
+<!-- /wrapper -->

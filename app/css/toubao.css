@@ -1,0 +1,55 @@
+.main{
+	margin:0 20px;
+}
+.bd{
+	margin-bottom:20px;
+}
+.sub_title {
+  color: #247ad1;
+  text-align:justify;
+  margin-top: 9px;
+  margin-bottom: 2px;
+  font-size: 16px;
+}
+.strong{
+	color:#247ad1;
+}
+.self{
+	background: url(img/self.jpg) no-repeat top right;
+	background-size:25px;
+}
+.toast_popup{
+	padding:20px;width:270px;height: auto;
+}
+.popup_title_cell{
+	padding-left:20px;background-color: #e5e5e5;font-size:15px;text-align: center;
+}
+.popup_content_cell{
+	padding-left:20px;font-size:14px;color:#000;text-align: center;border:1px solid #dcdcdc;
+}
+
+.toast .cell:not(:last-child){
+	border-bottom: none;
+}
+.main .cell{
+	  margin-bottom: 20px;
+}
+.btn_small{
+	font-size:0.16rem;
+}
+.weui_select {
+
+  -webkit-appearance: none;
+  border: 0;
+  outline: 0;
+  background-color: transparent;
+  width: 100%;
+  font-size: inherit;
+  height: 44px;
+  position: relative;
+  z-index: 1;
+  padding-left: 15px;
+  	padding-right:5px;
+	background: #fff url(../img/right_btn.jpg) no-repeat 98% 50%;
+	background-size: 10px;
+}

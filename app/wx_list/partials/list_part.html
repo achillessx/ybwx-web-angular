@@ -1,0 +1,34 @@
+
+<div id="wrapper" class="wrapper">
+		<div class="cell" style="color:#4A4A4A">
+			<div class="cell_hd  cell_primary item " ng-class='{"red":tog==""}' ng-click='tog=""'>全&nbsp;&nbsp;&nbsp;部</div>
+			<div class="cell_hd  cell_primary item" ng-class='{"red":tog=="6"}' ng-click='tog="6"'>已投保</div>
+			<div class="cell_hd  cell_primary item" ng-class='{"red":tog=="4"}' ng-click='tog="4"'>待投保</div>
+		</div>
+			<div class=" gradient-shadow" style="  "></div>
+		  <p class="default_text" ng-hide="filtered.length>0">暂时没有保单</p>
+		<ul class="ul_container" >
+			
+			<li class="list_item" ng-click="goDetail(order.order_no)"  ng-repeat="order in filtered = (orders |filter:filterFn )">
+			<!--{{order.testDate |  date:'yyyy-MM-dd HH:mm:ss'}}-->
+				<div class="order_title" style="position:relative">订单号:{{order.order_no}} <span class="bd_status">{{order.create_time  |  date:'yyyy-MM-dd'}}</span></div>
+				<div class="line"></div>
+				<div>
+					<div class="fl">
+					<!--<img src="wx_share/img/tree.png" class="order_img"> -->
+						<img ng-src="{{order.small_image_url}}" class="order_img">
+						</div>
+					<div >
+						<p style="position:relative;margin-top:13px;">{{order.order_name}} <span class="bd_status_text" style="position:absolute;right:0" >{{order.order_status_text}}</span></p>
+						<p>被保人:{{order.insured_name}}</p>
+						<p>生效时间:{{order.effective_date |  date:'yyyy-MM-dd HH:mm:ss'}}</p>
+					</div>
+					<div class="line" style="clear:both;"></div>
+					<div class="pay_money">实际支付:<span class="red">￥{{order.order_amount | number:2}}</span></div>
+				</div>
+			</li>
+	
+
+
+		</ul>
+	</div>

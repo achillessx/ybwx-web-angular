@@ -1,0 +1,320 @@
+<nav id="menu" class="c-menu c-menu--slide-left">
+  <ul>
+      <li class=" menu_cur">
+        <a href="">
+          
+          <span class="nav">欢迎语</span> <b></b>
+          <div class="clear"></div>
+        </a>
+      </li>
+
+      <li class="">
+        <a href="index.html">
+          <span class="am-icon-home icon"></span> 
+          <span class="am-icon-home icon"></span> 
+          <span class="">主页</span> <b></b>
+          <div class="clear"></div>
+        </a>
+      </li>
+
+
+      <li class="">
+        <a href="#/login">
+          <span class="am-icon-user icon"></span> 
+          <span>我的账户</span> <b></b>
+          <div class="clear"></div>
+        </a>
+      </li>
+      <li class="">
+        <a href="index.html">
+          <span class="am-icon-info icon"></span> 
+          <span>保单信息</span>
+          <b></b>
+          <div class="clear"></div>
+        </a>
+      </li>
+          <li class="">
+        <a href="index.html">
+            <span class="am-icon-users icon"></span> 
+          <span>邀请好友</span>
+          <b></b>
+          <div class="clear"></div>
+        </a>
+      </li>
+          <li class="">
+          <a href="index.html">
+      
+          <span class="am-icon-pencil-square-o icon"></span> 
+          <span>最新活动</span>
+          <b></b>
+          <div class="clear"></div>
+        </a>
+      </li>
+          <li class="">
+        <a href="index.html">
+          <span class="am-icon-info icon"></span> 
+          <span>消息</span>
+          <b></b>
+          <div class="clear"></div>
+        </a>
+      </li>
+      <li class="nav_about">
+        <a href="index.html">
+          <span class="am-icon-pencil-square-o icon"></span> 
+          <span>关于我们</span>
+          <b></b>javascript:;
+          <div class="clear"></div>
+        </a>
+      </li>
+    </ul>
+</nav><!-- /c-menu slide-left -->
+
+<!--
+  <header class="header">
+    <nav class="header-nav">
+      <a href="javascript:void(0)" class="header-left" id="c-button--slide-left"><img src="img/bar.png" style=""/></a>
+      <a href="#" class="header-center"><img src="img/title.png" style=""/></a>
+    </nav>
+  </header>
+  <style>
+  @keyframes water {  
+    0% {background-position: 0px  -1px ;}
+    100% {background-position: 100000% -1px;}
+  }
+  @-webkit-keyframes water {  
+    0% {background-position: 0px  -1px ;}
+    100% {background-position: 100000% -1px;}
+  }
+  </style> 
+ 
+  <div  class="header-text">
+    <h4  style="">12月20日</h4>
+    <h6  style="">Dec.20</h6>
+    <h5  style="">截止目前您的安全指数为40%</h5>
+  </div>
+
+  <div id="index_top_bg"> </div>
+
+-->
+
+.header-nav {
+  line-height: 50px;
+  position: relative;
+  width: 100%;
+  height: 50px;
+  text-align: center;
+  background: #37bdc8;
+}
+.header-nav .header-left {
+  position: absolute;
+  left: 10px;
+  display: block;
+}
+.header-nav .header-left img {
+  width: 25px;
+  vertical-align: middle;
+}
+.header-nav .header-center img {
+  max-width: 100px;
+  height: 30px;
+  vertical-align: middle;
+}
+.header-nav .header-center {
+  font-size: 18px;
+  font-weight: normal;
+  color: #fff;
+}
+.header-text {
+  height: 4rem;
+  margin: 0 auto;
+  text-align: center;
+  border: 0;
+  background-color: #37bdc8;
+}
+.header-text h4 {
+  font-size: .5rem;
+  font-weight: normal;
+  margin: 0 auto;
+  padding-top: 1rem;
+  color: #fff;
+}
+.header-text h5 {
+  font-size: .4rem;
+  font-weight: normal;
+  margin: 10px 0 0 0;
+  color: #fff;
+}
+.header-text h6 {
+  font-size: .3rem;
+  font-weight: normal;
+  margin: 0 auto;
+  color: #fff;
+}
+#index_top_bg {
+  width: 100%;
+  height: 59px;
+  border: none;
+  background: url('../img/index_bg_4.jpg') repeat-x;
+  background-size: 540px 59px;    /*
+        -webkit-animation:water 4000s linear   infinite;
+        animation: water 4000s linear   infinite;
+        */
+}
+
+/* -----------------------------------------------------------------------------
+
+  SLIDE AND PUSH MENUS COMPONENT
+  
+----------------------------------------------------------------------------- */
+
+/**
+ * Menu overview.
+ */
+.c-menu {
+  position: fixed;
+  z-index: 200;
+  -webkit-transition: all .3s;
+  transition: all .3s;
+  background-color: #323436;
+}
+.c-menu__items {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/**
+ * Left and right menus
+ *
+ * Slide and push menus coming in from the left and right inherit a lot of
+ * common styles. We'll start each of them off by doing up the common styles
+ * for each version, followed by individual styles.
+ *
+ * The various versions are governed by modifier classes.
+ */
+
+/**
+ * Common modifiers for left/right menus.
+ */
+.c-menu--slide-left {
+  width: 100%;
+  height: 100%;
+}
+@media all and (min-width:320px) {
+  .c-menu--slide-left {
+    width: 200px;
+  }
+}
+#menu ul {
+  padding: 0;
+}
+#menu ul li {
+  line-height: 50px;
+  display: block;
+  overflow: hidden;
+  width: 100%;
+  height: 49px;
+  border-bottom: 1px solid #44474a;
+  background-color: #323436;
+}
+#menu ul li a {
+  display: block;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  padding-top: 16.5px;
+  color: #fff;
+  border-left: 5px solid #1d1d1d;
+}
+#menu ul li a b {
+  display: block;
+  float: right;
+  width: 16px;
+  height: 16px;
+  margin-right: 6px;
+  opacity: .2;
+  background-position: 0 -55px;
+}
+#menu ul li a i {
+  display: block;
+  float: left;
+  width: 16px;
+  height: 16px;
+  margin-left: 20px;
+  opacity: .6;
+  background-size: 32px 250px;
+}
+#menu ul .menu_cur a i {
+  opacity: 1;
+}
+#menu  .icon {
+  width: 1rem;
+  text-align: center;
+}
+#menu ul li a span {
+  line-height: 16px;
+  display: block;
+  float: left;
+  height: 16px;
+  margin-left: 15px;
+}
+#menu ul li:hover, #menu ul .menu_cur {
+  background-color: #1d1d1d;
+}
+
+/**
+ * Slide/Push Menu Left.
+ */
+.c-menu--slide-left {
+  top: 0;
+  left: 0;
+  -webkit-transform: translateX(-100%);
+  transform: translateX(-100%);
+}
+@media all and (min-width:320px) {
+  .c-menu--slide-left {
+    -webkit-transform: translateX(-200px);
+    transform: translateX(-200px);
+  }
+}
+.c-menu--slide-left.is-active {
+  -webkit-transform: translateX(0);
+  transform: translateX(0);
+}
+
+/**
+ * Body states.
+ *
+ * When a menu is active, we want to hide the overflows on the body to prevent
+ * awkward document scrolling.
+ */
+body.has-active-menu {
+  overflow: hidden;
+}
+.c-menu__close:focus {
+  outline: none;
+}
+
+/* -----------------------------------------------------------------------------
+
+  MASK COMPONENT
+  
+----------------------------------------------------------------------------- */
+.c-mask {
+  position: fixed;
+  z-index: 100;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+  width: 0;
+  height: 0;
+  transition: opacity .3s, width 0s .3s, height 0s .3s;
+  opacity: 0;
+  background-color: #000;
+}
+.c-mask.is-active {
+  width: 100%;
+  height: 100%;
+  transition: opacity .3s;
+  opacity: .7;
+}

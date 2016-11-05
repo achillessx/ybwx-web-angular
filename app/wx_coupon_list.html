@@ -1,0 +1,231 @@
+<!doctype html>
+<html lang="en" ng-app="wxCouponListApp">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+  <meta name="viewport"content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <title>保险劵</title>
+    <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?7735ab379e0c352fd0fcfeb3f9248b59";
+      var s = document.getElementsByTagName("script")[0]; 
+      s.parentNode.insertBefore(hm, s);
+    })();
+    </script>
+  <script src="wx_share/js/util.js?rev=56c068a5e13fd8e6df99a8a57a50da5f"></script>
+  <script type="text/javascript">
+   var code = util.getParameterByName('code');
+   var recId = util.getParameterByName('rec_id');
+   //var openId;
+  </script>
+   <link rel="stylesheet" type="text/css" href="bower_components/normalize-css/normalize.css">
+   <link rel="stylesheet" href="wx_share/css/style.css?rev=1e74a141e73a298be65e084554320f6d">
+   <link rel="stylesheet" type="text/css" href="wx_share/css/list.css?rev=ef280317c9aca9742bd7c3430af0db35">
+   <style>
+.list_item:active{
+  background-color: #F3F3F3;
+}
+.list_item{
+  background:#f3f3f3 url(wx_share/img/coupon_bg_2.jpg)  no-repeat center ;
+  width:300px;
+  height:130px;
+  background-size: contain;
+  position: relative;
+  padding:0 5px 0 5px;
+  margin:5px auto;
+}
+ .coupon_text p{
+    margin:8px 0 ;
+ }
+.logo_img{
+  width: 40px;
+  height: 40px;
+  margin:20px 10px  0 0px;
+}
+.success_item{
+  background:url(wx_share/img/coupon_success.png)  no-repeat ;
+  background-size:contain;
+}
+.ing_item{
+  background:url(wx_share/img/coupon_ing.png)  no-repeat ;
+  background-size:contain;
+}
+.ood_item{
+  background:url(wx_share/img/coupon_ood.png)  no-repeat ;
+  background-size:contain;
+}
+.right_button_container{
+  margin-top:45px;
+  margin-right:10px;
+}
+.right_button{
+  height:10px;
+  width:10px;
+}
+
+
+@media all and (max-width: 375px)
+{
+  .tag{
+    top:38px;
+    right:45px;
+    height:80px;
+    width:80px;
+    position: absolute;
+    z-index: 0;
+  }
+}
+
+@media all and (min-width: 385px)
+{
+  .tag{
+  top:50px;
+  right:65px;
+  height:100px;
+  width:100px;
+  position: absolute;
+  z-index: 0;
+  }
+  .list_item{
+     width:370px;
+     height:160px;
+  }
+  .coupon_text p{
+    margin:12px 0 ;
+  }
+}
+
+.default_text{
+   margin-top:200px;text-align:center;color:#D1D1D1;display: none;
+}
+</style>
+</head>
+<body ng-controller="myCouponListCtrl">
+<div id="wrapper" class="wrapper">
+    <ul class="ul_container" style="background-color:#f3f3f3;display:none">
+
+      <li class="list_item"  style="" ng-click="goDetail(coupon.coupon_no,coupon.coupon_status,coupon.order_no)"   ng-repeat="coupon in coupons" >
+
+        <div style="padding:30px 20px 20px;">
+           <div class="fl">
+               <img src="wx_share/img/ta_logo.png" class="logo_img">
+            </div>
+            <div class="fl coupon_text" style="z-index:10;" >
+              <p>天安100万航空意外险 </p>
+              <p style="font-size:11px;">限本人使用</p>
+              <p style="color:#b8b8ba;font-size:11px;">有效期至:{{coupon.expiry_date |  date:'yyyy-MM-dd'}}</p>
+              <div class="fl tag {{coupon.imgClass}}" > </div>
+            </div>
+        </div>
+      </li>
+    </ul>
+
+    <p class="default_text" id="reason_container">暂时没有保险劵</p>
+
+
+  </div>
+  <!-- /content -->
+  <script src="bower_components/jquery/dist/jquery.min.js"></script>
+  <script src="bower_components/angular/angular.min.js"></script>
+  <script src="bower_components/angular-route/angular-route.min.js"></script>
+  <script src="bower_components/angular-resource/angular-resource.min.js"></script>
+  <script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+  <script src="wx_share/js/wxShare.js?rev=123917cca88395e62eb9f35d1888ee76"></script>
+ <script>
+ var api = {
+  'getCoupons':'/ybwx-web/api/get_coupons'
+ }
+var shareUrl = 'http://web.youbaowuxian.com/wx_share.html';
+var app = angular.module("wxCouponListApp", ['ngRoute']);
+app.controller('myCouponListCtrl', ['$scope', '$routeParams', '$http', '$location','$rootScope',
+  function($scope, $routeParams, $http, $location,$rootScope) {
+    var imgMap={
+      0:"",
+      1:"",
+      3:"ing_item",
+      4:"success_item",
+      5:"ood_item",
+    }
+    $scope.init = function() {
+        weixinShareUtil.share(shareUrl,true).then(function(){
+        var openId = sessionStorage.getItem("openId");
+      //  $scope.reason="您没有领取任何优惠券。";
+       // $("#reason_container").show();
+          $http({
+                method: 'POST',
+                headers: {
+                  "Content-Type": "application/json;charset:UTF-8"
+                },
+               url: api['getCoupons'],
+                data: {
+                  "open_id": openId
+                }
+              }).then(function(res) {
+                 console.log(res);
+                 if(res.data && res.data.description){
+                     util.showToast($rootScope,res.data.description);
+                      $("#reason_container").show();
+                 }else if(res.data.code==0){
+                    if(res.data.data.coupons){
+                        /**/
+                          res.data.data.coupons.forEach(function(item){
+                            //  item.showDate = item["expiry_date"].substring(0,4)+"-"+item["expiry_date"].substring(4,6)+"-"+item["expiry_date"].substring(6);
+                              item.imgClass=imgMap[item["coupon_status"]];
+                          })
+                           $scope.reason="";
+                           if(res.data.data.coupons.length===0){
+                             $("#reason_container").show();
+                           }
+                          console.log( res.data.data.coupons);
+                          $scope.coupons=res.data.data.coupons;
+                          $(".ul_container").show();
+                    }else{
+                       $("#reason_container").show();
+                    }
+                 }
+              }, function(res) {
+                 console.log(res);
+
+                 util.showToast($rootScope,"服务器错误");
+              });
+            })
+   }
+   $scope.goDetail = function(coupon_no,coupon_status,order_no){
+
+      //wx_list.html#/detail?order_no=P20160130000000122
+     
+      if(coupon_status===4){
+       // util.showToast($rootScope,"优惠券已经投保成功，邀请更多的好友领取，可以再次免费获得优惠券");
+         window.location.href="wx_list.html#/detail?order_no="+order_no;
+
+      }else 
+      if(coupon_status===5){
+        util.showToast($rootScope,"优惠券已经过期，邀请更多的好友领取，可以再次免费获得优惠券");
+      }else 
+       if(coupon_status===1){
+        window.location.href="wx_share.html#/freebd?coupon_no="+coupon_no;
+        //$location.path('wx_share.html#/freebd').search({coupon_no:coupon_no});
+      }else{
+        util.showToast($rootScope,"优惠券暂时无法使用，邀请更多的好友领取，可以再次免费获得优惠券");
+      }
+      
+
+    }
+    $scope.init();
+  }
+]);
+ </script>
+<div id="toast" style="display: none;">
+                <div class="weui_mask_transparent"></div>
+                <div class="weui_toast" style="display: table;width:200px;height:100px;left:40%;">
+                    <p class="weui_toast_content" style="display:table-cell;vertical-align:middle;">{{server_reason}}</p>
+ </div>
+ 
+</div>
+<script type="text/javascript" src="http://pingjs.qq.com/h5/stats.js" name="MTAH5" sid="500007387" ></script>
+</body>
+</html>

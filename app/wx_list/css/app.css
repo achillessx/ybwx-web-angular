@@ -1,0 +1,185 @@
+body
+{
+    font: 14px Arial,Microsoft YaHei,SimHei,Helvetica,sans-serif;
+
+    background-color: #f6f6f6;
+}
+
+ul{
+  margin:0;
+  list-style: none;
+}
+a, img{
+    -webkit-touch-callout: none; /*禁止长按链接与图片弹出菜单*
+}
+
+button,input,optgroup,select,textarea{
+    -webkit-appearance:none; /*去掉webkit默认的表单样式*/}a,button,input,optgroup,select,textarea{
+    -webkit-tap-highlight-color:rgba(0,0,0,0); /*去掉a、input和button点击时的蓝色外边框和灰色半透明背景*/}input::-webkit-input-placeholder{
+    color:#ccc; /*修改webkit中input的planceholder样式*/}input:focus::-webkit-input-placeholder{
+    color:#f00; /*修改webkit中focus状态下input的planceholder样式*/}body{
+    -webkit-text-size-adjust:100%!important; /*禁止IOS调整字体大小*/}input::-webkit-input-speech-button{
+    display: none; /*隐藏Android的语音输入按钮*/}
+a
+{
+    text-decoration: none;
+    color: #37bdc8;
+}
+.fl{
+    float:left;
+}
+
+.fr{
+    float:right;
+}
+
+.line
+{
+    position: static;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    -webkit-transform: scaleY(.5);
+            transform: scaleY(.5);
+    -webkit-transform-origin: 0 0;
+            transform-origin: 0 0;
+
+    border-top: 1px solid #d9d9d9;
+}
+
+.gradient-shadow{
+    position: relative;
+    height:3px;
+}
+.gradient-shadow:before{
+    content: ' ';
+    background: -webkit-linear-gradient(top, #BBB,#EEE ,white 100%);
+    background: -moz-linear-gradient(top, #BBB,#EEE ,white 100%);
+    background: -o-linear-gradient(top, #BBB,#EEE ,white 100%);
+    background: linear-gradient(top, #BBB,#EEE ,white 100%);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+ 
+    z-index: -1;
+}
+
+
+
+/* -----------------------------------------------------------------------------
+
+  BUTTONS,INPUT
+  
+----------------------------------------------------------------------------- */
+
+.ul_container{
+  clear:both;background-color: #fff;padding:0;margin-bottom:30px;background-color: #F3F3F3;color:#A0A0A0;font-size:14px;margin-top:15px;
+}
+.cell
+{
+
+    position: relative; /* 老版本语法: Safari, iOS, Android browser, older WebKit browsers. */ /* 老版本语法: Firefox (buggy) */
+    display: block;
+    background-color: #fff;
+}
+.cell_primary
+{
+    width: 2000px;
+    white-space: normal;
+}
+
+.cell_hd
+{
+    display: table-cell;
+    vertical-align: middle;
+    white-space: nowrap;
+    word-wrap: break-word;
+    word-break: break-all;
+    height:45px;
+    position: relative;
+}
+
+.cell_hd_border{
+   border:1px solid #79D3DA;
+}
+.cell_title {
+  position:relative;
+  margin-top: .77em;
+  margin-bottom: .3em;
+  padding: 15px 0px 6px 0;
+  color: #8E8E8E;
+  font-size: 17px;
+}
+.cell_sub_title {
+  width:60px;
+  text-align:justify;
+  margin-top: 9px;
+  margin-bottom: 2px;
+  color: #a3a3a3;
+  font-size: 14px;
+}
+
+.item{
+  position:relative;
+  font-size:17px;
+  text-align: center;
+  margin-right: 30px;
+}
+.item:active{
+   background-color: #F3F3F3;
+}
+
+.item:after {
+  content: " ";
+  position: absolute;
+  right: 0;
+  top: 15%;
+  width: 1px;
+  height: 75%;
+  border-right: 1px solid #D9D9D9;
+  -webkit-transform-origin: 0 100%;
+      -ms-transform-origin: 0 100%;
+          transform-origin: 0 100%;
+  -webkit-transform: scaleX(0.5);
+      -ms-transform: scaleX(0.5);
+          transform: scaleX(0.5);
+}
+
+.order_title{
+  padding:5px 10px 10px 0 ;font-size:15px;
+}
+.list_item{
+  padding:10px 30px;
+  margin-bottom:10px;
+  background-color: #FFF;
+  box-shadow: 0 2px 3px #cacaca;
+}
+.list_item:active{
+  background-color: #F3F3F3;
+}
+
+.default_text{
+margin-top:200px;text-align:center;color:#D1D1D1;
+}
+.ul_container p {
+  margin:5px 0 10px 0;
+}
+.bd_status_text{
+ color:#0f9532;
+}
+.bd_status{
+  position:absolute;right:0;height:17px;line-height:17px; 
+}
+
+@media all and (max-width: 320px)
+{
+  .order_title,.ul_container{
+    font-size:13px;
+  }
+  .list_item{
+    padding: 10px 10px;
+  }
+}

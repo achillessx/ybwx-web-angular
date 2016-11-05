@@ -1,0 +1,143 @@
+.ul_container
+{
+    font-size: 14px;
+
+    clear: both;
+
+    margin-top: 15px;
+    margin-bottom: 30px;
+    padding: 0;
+
+    color: #a0a0a0;
+    background-color: #fff;
+    background-color: #f3f3f3;
+}
+.order_title
+{
+    font-size: 15px;
+
+    padding: 5px 10px 10px 0 ;
+}
+.list_item
+{
+    position: relative;
+
+    overflow: hidden;
+
+    margin-bottom: 8px;
+    padding: 10px;
+
+    color: #353535;
+    background-color: #fff;
+}
+.list_item:active
+{
+    background-color: #f3f3f3;
+}
+.default_text
+{
+    margin-top: 200px;
+
+    text-align: center;
+
+    color: #d1d1d1;
+}
+.ul_container p:not(:first-child)
+{
+    margin: 5px 0;
+}
+.order_img
+{
+    width: 90px;
+}
+.logo_img
+{
+    float: right;
+
+    width: 90px;
+}
+
+
+.h_title
+{
+    font-size: 16px;
+    font-weight: bold;
+
+    position: relative;
+
+    margin: 0;
+
+    color: #353535;
+}
+.desc
+{
+    font-size: 12px;
+
+    margin-bottom: 0;
+}
+.money
+{
+    font-size: 18px;
+
+    color: red;
+}
+
+
+.img_box
+{
+    float: left;
+
+    margin-right: 10px;
+}
+.small_container
+{
+    overflow: hidden;
+    min-height: 90px;height:90px;
+    position: relative;
+    background: url(../img/ta_logo_pd.png) no-repeat top right;
+    background-size: 50px;
+}
+.bottom_container
+{
+    position: absolute;
+    bottom: 0px;
+    left: 0; right: 0;
+
+}
+.money_container
+{
+    display: inline-block;
+
+    vertical-align: bottom;
+}
+.small_btn
+{
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    display: inline-block;
+    padding: 5px 10px;
+    color: #669adb;
+    border: 1px solid #247ad1;
+    border-radius: 5px;
+}
+@media all and (max-width: 320px)
+{
+  
+    .small_btn{
+      padding:3px 5px;
+    }
+    .order_img
+    {
+        width: 80px;
+    }
+    .list_item
+    {
+        padding: 10px 5px;
+    }
+    .h_title
+    {
+        font-size: 14px;
+    }
+}
+

@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en" ng-app="ybwxApp">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+  <meta name="viewport"content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <title>诺贝保险管家</title>
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?7735ab379e0c352fd0fcfeb3f9248b59";
+      var s = document.getElementsByTagName("script")[0]; 
+      s.parentNode.insertBefore(hm, s);
+    })();
+    </script>
+  <link rel="stylesheet" type="text/css" href="bower_components/normalize-css/normalize.css">
+  <link rel="stylesheet" href="css/globe.css?v=afafa23">
+  <link rel="stylesheet" href="css/app.css?rev=1a1830240083457506199b082fd29033">
+</head>
+<body>
+
+  <main class="content" ng-view>
+   
+  </main><!-- /content -->
+  
+<div id="toast" style="display: none;">
+                <div class="weui_mask_transparent"></div>
+                <div class="weui_toast" style="display: table;width:200px;height:100px;left:40%;">
+                    <p class="weui_toast_content" style="display:table-cell;vertical-align:middle;">{{server_reason}}</p>
+                </div>
+</div>
+  <script src="bower_components/jquery/dist/jquery.min.js"></script>
+  <script src="bower_components/angular/angular.min.js"></script>
+  <script src="bower_components/angular-route/angular-route.min.js"></script>
+  <script src="bower_components/angular-cookies/angular-cookies.min.js"></script>
+  <script src="bower_components/angular-resource/angular-resource.min.js"></script>
+  <script src="js/util.js?rev=e8c3f0a6e94d2bbebe0fabbb71e3d534"></script>
+
+  <script src="js/app.js?rev=08248c0e2bdc5e7c2cffda407a49a700"></script>
+  <script src="js/controllers.js?rev=9559c652caefff8a57e3cd3f08da46a5"></script>
+  <script src="js/directives.js?rev=57d74af2016e6c30d8b9b057ef03947a"></script>
+  <script src="js/jquery.piemenu.js?rev=701dda02459b69ad7080aafbeeb76df6"></script>
+
+ 
+  <script type="text/javascript" >
+   $("body").on("focus","input",function(){
+         $(this).parents(".cell_hd").siblings(".line").addClass("line_focus");
+   }) .on("blur","input",function(){
+         $(this).parents(".cell_hd").siblings(".line").removeClass("line_focus");
+   }) 
+  </script>
+</body>
+</html>

@@ -1,0 +1,185 @@
+
+/*414px 像素 iphone6 plus*/
+html{font-size: 100px;}
+
+
+/* <=320的奇葩手机 */
+@media  (max-device-width : 320px){
+    html{font-size: 77.2946px;}
+}
+
+/* iphone 4, iphone5 */
+@media (min-device-width : 320px) and (max-device-width : 568px) and (-webkit-min-device-pixel-ratio : 2){
+    html{font-size: 77.2946px;}
+}
+ 
+/* iphone 6 */
+@media (min-device-width : 375px) and (max-device-width : 627px) and (-webkit-min-device-pixel-ratio : 2){
+    html{font-size: 90.579px;}
+}
+/* iphone6 plus */
+@media (min-device-width : 414px) and (max-device-width : 736px) and (-webkit-min-device-pixel-ratio : 3){
+    html{font-size: 100px;}
+}
+
+html, body {
+    -webkit-user-select: none;   /* 禁止选中文本（如无文本选中需求，此为必选项） */
+    user-select: none;
+}
+body {
+    font: 0.14rem  Arial, Microsoft YaHei, SimHei, Helvetica, sans-serif;/*实际相当于14px*/
+    background-color: #f6f6f6;
+    -webkit-text-size-adjust: 100% !important; /*禁止IOS调整字体大小*/
+}
+a, button, input, optgroup, select, textarea {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0); /*去掉a、input和button点击时的蓝色外边框和灰色半透明背景*/
+}
+ul {
+    margin: 0;
+    list-style: none;
+}
+a, img {
+    -webkit-touch-callout: none; /*禁止长按链接与图片弹出菜单*/
+} 
+button,input,optgroup,select,textarea{
+        -webkit-appearance:none; /*去掉webkit默认的表单样式*/
+}
+a {
+    text-decoration: none;
+    color: #37bdc8;
+}
+input::-webkit-input-placeholder {
+    color: #a3a3a3; /*修改webkit中input的planceholder样式*/
+}
+input:focus::-webkit-input-placeholder {
+    color: #f00; /*修改webkit中focus状态下input的planceholder样式*/
+}
+input::-webkit-input-speech-button {
+    display: none; /*隐藏Android的语音输入按钮*/
+}
+.fl {
+    float: left;
+}
+.fr {
+    float: right;
+}
+.blue {
+    color: #247ad1;
+}
+.red {
+    color: #f13838;
+}
+.gray{
+    color:#b1b1b1;
+}
+.line {
+    position: static;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    -webkit-transform: scaleY(.5);
+    transform: scaleY(.5);
+    -webkit-transform-origin: 0 0;
+    transform-origin: 0 0;
+    border-top: 1px solid #d9d9d9;
+}
+.mask {
+    position: absolute;
+    position: fixed;
+    z-index: 10000;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: none;
+    background: rgba(0, 0, 0, .4);
+}
+.toast {
+    font-size: 14px;
+    line-height: 20px;
+    position: fixed;
+    z-index: 3;
+    top: 100px;
+    right: 0;
+    left: 0;
+    width: 210px;
+    min-height: 7.6em;
+    margin: auto;
+    padding: 30px 30px 0;
+    word-wrap: break-word;
+    word-break: break-all;
+    color: #4e4e4e;
+    border-radius: 5px;
+    background: #fff;
+}
+.gradient-shadow {
+    position: relative;
+    height: 3px;
+}
+.gradient-shadow:before {
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    content: ' ';
+    background: -webkit-linear-gradient(top, #bbb, #eee, white 100%);
+    background: -moz-linear-gradient(top, #bbb, #eee, white 100%);
+    background: -o-linear-gradient(top, #bbb, #eee, white 100%);
+    background: linear-gradient(top, #bbb, #eee, white 100%);
+}
+.btn {
+    font-size: 0.24rem;
+    line-height: 50px;
+    position: fixed;
+    bottom: 20px;    /*
+        font-size: 18px;
+        line-height: 2.33333333;*/
+    display: block;
+    overflow: hidden;
+    box-sizing: border-box;
+    width: 100%;
+    text-align: center;
+    text-decoration: none;
+    color: #fff;
+    border-radius: 2px;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+.btn_primary {
+    height: 50px;
+    background-color: #37bdc8;
+}
+.btn_n_primary {
+    height: 50px;
+    background-color: #247ad1;
+}
+
+.cell
+{
+
+    position: relative; /* 老版本语法: Safari, iOS, Android browser, older WebKit browsers. */ /* 老版本语法: Firefox (buggy) */
+
+    display: block;
+
+}
+
+.cell_primary
+{
+    width: 2000px;
+    white-space: normal;
+}
+
+.cell_hd
+{
+    display: table-cell;
+
+    vertical-align: middle;
+    white-space: nowrap;
+    word-wrap: break-word;
+    word-break: break-all;
+    text-align: center;
+    height:45px;
+    position: relative;
+}

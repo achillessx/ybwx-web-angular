@@ -1,0 +1,108 @@
+<div id="wrapper" class="wrapper">
+
+
+
+    <div id="pieChartContainer"></div>
+    <div class="text_container"  >
+      <s><i></i></s>
+      <div class="footer_container_left">
+        <span>4.5</span>/10
+      </div>
+      <div class="footer_container_right" >您的保障系数较低，为降低未来位置风险对您生活的影响，建议您点击上方灰色区域做相应提升。</div>
+    </div>
+
+</div><!-- /wrapper -->
+
+<script>
+
+$(function() {
+ 
+         // "icon":"\uf193",
+var pieConfig=[
+        {
+          "text":"家庭",
+          "percent":0.7, 
+          "isDisable":false,
+          "icon":"\uf072",
+          "img":"img/home.png",
+          "color":"#df3c88",
+          "textColor":"#a32761"  
+        },
+        {
+          "text":"健康",
+          "percent":0.6, 
+          "isDisable":true,
+          "icon":"\uf1b9",
+          "img":"img/health.png",
+          "color":"#5eb412" , 
+          "textColor":"#719e2d"  
+        },
+        {
+          "text":"财产",
+          "percent":0.3, 
+          "icon":"\uf278",
+          "img":"img/money_2.png",
+          "isDisable":true,
+          "color":"#f3b215" , 
+          "textColor":"#daa013"  
+        },
+         {
+          "text":"意外",
+          "percent":0.2, 
+          "icon":"\uf21e",
+           "img":"img/plane_2.png",
+          "isDisable":true,
+          "color":"#ea4c4c"  ,
+          "textColor":"#c14141"  
+        },
+         {
+          "text":"人寿",
+          "percent":0.3, 
+          "icon":"\uf155",
+           "img":"img/age.png",
+          "isDisable":true,
+          "color":"#0f7be7"  ,
+          "textColor":"#106491"  
+        }
+   ];
+
+  $('#piemenu').pieMenu({},
+      {
+        elementStyle: {position: 'absolute'},
+        pieConfig:pieConfig,
+        parentElement:$("#pieChartContainer"),
+        onSelection: function(item) { 
+          window.location="#/select"
+      }
+      });
+});
+  </script>
+
+<script>
+
+
+/*
+
+
+ $("#menu").on("click","a",function(e){
+    e.preventDefault;
+    slideLeft.close();
+ });
+  var slideLeft = new Menu({
+    wrapper: '#wrapper',
+    type: 'slide-left',
+    menuOpenerClass: '.c-button',
+    maskId: '#c-mask'
+  });
+ $("#wrapper").on("click","#c-button--slide-left",function(e){
+   console.log("click");
+    e.preventDefault;
+    slideLeft.open();
+ });
+  var slideLeftBtn = document.querySelector('#c-button--slide-left');
+  slideLeftBtn.addEventListener('click', function(e) {
+    e.preventDefault;
+    slideLeft.open();
+  });*/
+
+  </script>

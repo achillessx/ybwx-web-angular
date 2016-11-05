@@ -1,0 +1,83 @@
+  <link rel="stylesheet" href="wx_product/css/product_detail.css?v=aaadg"></head>
+<header>
+    <img src="wx_share/img/hw_bg_header.jpg"  />
+  </header>
+  <div  class="container">
+  <div class="main-title">{{data.insurance_name}}</div>
+    <h4>
+      <span class="subtitle">&nbsp;{{data.insurance_second_type}}&nbsp;&nbsp;</span>
+      <span class="fr">
+        查看
+        <a href="ybwx-web/api/web_page/{{data.information_page_id}}" target="_blank"><span class="blue">投保须知</span></a>
+      </span>
+    </h4>
+    <table id="title-table" ng-show="data.insurance_plans.length>1"  >
+      <tr ng-repeat="plan in data.insurance_plans">
+      <td class="choose" >{{plan.name}}</td>
+      </tr>
+    </table>
+
+      <table class="content-table" id="content_{{$index}}" ng-repeat="plan in data.insurance_plans">
+        <tr>
+          <th>保障范围</th>
+          <th>保障额度</th>
+        </tr>
+
+        <tr ng-repeat="item in plan.coverage_beans">
+          <td class="td-left">{{item.name}}
+               <!--<img src="wx_share/img/help.jpg" class="help-img">-->
+          </td>
+          <td>{{item.sum_insured/100 | number}}元</td>
+        </tr>
+      </table>
+    <div class="introd-sum">
+     价格:<span class="red">176.00</span>元起
+      <span class="fr">
+      本产品由
+      <span class="blue">{{data.insurance_company_name}}</span>
+      承保并负责理赔
+       </span>
+    </div>
+    <div class="line"></div>
+    <h4>
+      <span class="subtitle">&nbsp;产品特色&nbsp;&nbsp;</span>
+    </h4>
+    <div class="detail-container">
+      <h5>周游世界，说走就走</h5>
+      <div>
+        <img src="wx_share/img/pd_01.jpg" ></div>
+      <h5>超值组合,全方位保障，最高保120万！</h5>
+      <div>
+        <img src="wx_share/img/pd_02.jpg"></div>
+      <h5>一人出行，全家放心!</h5>
+      <div>
+        <img src="wx_share/img/pd_03.jpg"></div>
+    </div>
+    <div class="line"></div>
+    <h4>
+      <span class="subtitle">&nbsp;理赔流程&nbsp;&nbsp;</span>
+    </h4>
+    <div class="detail-container">
+      <img src="wx_share/img/pd_04.jpg"></div>
+  </div>
+  <footer></footer>
+  <div class="cell">
+    <a href="/#/tb" class="btn btn_n_primary btn-fixed" style="">立即投保</a>
+  </div>
+  <div class="mask " id="popup">
+ <div class="toast">
+  在保险起见内，以乘客身份乘坐商业运营的汽车起见因意外伤害身故/残疾，我们将按“汽车意；
+ </div> 
+</div>
+<script >
+ $(".help-img").click(function(){
+    $(".mask").show()
+ })
+ $(".mask").click(function(){
+    $(this).hide(); 
+ })
+ $("#title-table").find("td").click(function(){
+     $("#title-table").find("td").removeClass("choose");
+     $(this).addClass("choose");
+ })
+</script>

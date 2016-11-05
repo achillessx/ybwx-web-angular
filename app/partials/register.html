@@ -1,0 +1,85 @@
+<div id="wrapper" class="wrapper">
+
+	<header class="header">
+		<nav class="header-nav">
+			<a href="#/" class="header-left">
+				<img src="img/return.png" style=""/>
+			</a>
+			<a href="#" class="header-center">手机验证注册</a>
+		</nav>
+	</header>
+	<!-- /header -->
+
+	<div style="" class="login_container">
+		<form class="" role="form" name="registration" novalidate>
+			<div class="cell ">
+				<div class="cell_hd">
+					<label class="label">手机号</label>
+				</div>
+				<div class="cell_hd cell_primary">
+					<input type="number" class="ipt" ng-minlength="11" ng-maxlength="11" name="mobile" ng-model="user.mobile" required />
+				</div>
+				<div class="line"></div>
+			
+			</div>
+				<div class="cell"  style="color:red"
+            ng-show="registration.mobile.$dirty && registration.mobile.$invalid || vercode_server_reason">
+					<small class="error" 
+            ng-show="registration.mobile.$error.required">手机号必填</small>
+					<small class="error" 
+                ng-show="registration.mobile.$error.minlength">手机号必须是11位数字</small>
+					<small class="error" 
+                ng-show="registration.mobile.$error.maxlength">手机号必须是11位数字</small>
+                    <small class="error" ng-show="vercode_server_reason">{{vercode_server_reason}}</small>
+				</div>
+			<div class="cell" >
+
+				<div class="cell_hd">
+					<label class="label">验证号</label>
+				</div>
+				<div class="cell_hd cell_primary">
+					<input type="number" class="ipt"   ng-minlength="6" ng-maxlength="6" name="vercode" ng-model="user.verCode" required />
+				</div>
+				<div class="cell_hd">
+					<a href="javascript:;" class=" btn btn_primary btn-ycode btn_disabled " ng-class="registration.mobile.$dirty &&  !registration.mobile.$invalid && !isWaiting ? 'btn btn_primary btn-ycode ' : 'btn btn_primary btn-ycode btn_disabled' "  ng-click='sendVerify()' required >{{status}}</a>
+				</div>
+				
+
+				<div class="line"></div>
+			</div>
+			<div class="cell"  style="color:red"
+            ng-show="registration.vercode.$dirty && registration.vercode.$invalid ">
+					<small class="error" 
+            ng-show="registration.vercode.$error.required">验证码号必填</small>
+					<small class="error" 
+                ng-show="registration.vercode.$error.minlength">验证码必须是6位数字</small>
+					<small class="error" 
+                ng-show="registration.vercode.$error.maxlength">验证码必须是6位数字</small>
+                  
+				</div>
+
+			<div class="cell" >
+				<div class="cell_hd">
+					<label class="label">设置密码</label>
+				</div>
+				<div class="cell_hd cell_primary">
+					<input type="password" class="ipt eyebg"  name="password" ng-model="user.password" required  />
+				</div>
+				<div class="line"></div>
+
+			</div>
+				<div class="cell"  style="color:red"
+            ng-show="registration.password.$dirty && registration.password.$invalid || submit_server_reason">
+					<small class="error" 
+            ng-show="registration.password.$error.required">密码必填</small>
+              <small class="error" ng-show="submit_server_reason">{{submit_server_reason}}</small>
+				</div>
+			<div class="cell" >
+				<a href="javascript:void(0)" class=""  ng-class="registration.$invalid ? 'btn btn_primary btn_disabled' : 'btn btn_primary' "  ng-click='submit()' id="submitButton"  style="">注册</a>
+			
+			</div>
+		</form>
+	</div>
+
+</div>
+<!-- /wrapper -->

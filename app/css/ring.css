@@ -1,0 +1,115 @@
+
+.wrapper{
+	padding:0px 30px;
+}
+
+.tx_lf {
+	text-align: left;
+}
+.tx_ce {
+	text-align: center;
+}
+.bt_container {
+	position: relative;
+	border-width: 1px;
+	border-style: none none solid none;
+	border-color: #d2d2d2;
+	padding: 10px 0px;
+}
+.small {
+	font-size: 12px;
+}
+.text_intr {
+	color: #4e4e4e;
+	font-size: 16px;
+}
+.score_text{
+	text-align: center;
+	margin:20px;
+}
+.score{
+	font-size: 20px;
+	color:red;
+}
+.li_num {
+	float: left;
+	height: 18px;
+	margin-left: -10px;
+	margin-top: 5px;
+}
+.canvas_text {
+	color: #247ad1;
+	font-size: 20px;
+}
+.weui_progress_bar {
+	background-color: #e0e0e0;
+	height: 5px;
+	position: relative;
+	-webkit-box-flex: 1;
+	-webkit-flex: 1;
+	-ms-flex: 1;
+	flex: 1;
+}
+.weui_progress_inner_bar {
+	width: 0;
+	height: 100%;
+	background-color: #247ad1;
+}
+.bottom_container {
+	border-width: 1px;
+	border-style: none none solid;
+	border-color: #d2d2d2;
+	padding: 40px 20px;
+	margin-top: 10px;
+	position: relative;
+	text-align: center;
+}
+.left_button {
+	background-color: #247ad1;
+	height: 16px;
+	width: 16px;
+	border-radius: 100%;
+	float: left;
+	position: relative;
+	top: -6px;
+}
+.ring {
+	background-color: #e0e0e0;
+	height: 16px;
+	width: 16px;
+	border-radius: 100%;
+	float: right;
+	position: relative;
+	top: -10px;
+}
+.right_button {
+	float: right;
+	position: relative;
+	top: -12px;
+	right: -58px;
+	color: #247ad1
+}
+.bar_top_score {
+	top: -8px;
+	left: -1px;
+	position: absolute;
+	color: #f53c56;
+	width:30px;
+}
+.bar_bottom_money {
+	top: 40px;
+	left: -8px;
+	position: absolute;
+	color: #247ad1;
+	width:48px;
+}
+.bar_btn {
+	width: 29px;
+	top: 12px;
+	left: 0px;
+	position: absolute;
+	z-index: 3;
+}
+#zhizhen{
+	position: absolute;width:50px;height:50px;top:-25px
+}

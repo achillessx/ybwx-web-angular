@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en" ng-app="wxListApp">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+  <meta name="viewport"content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <title>我的保单</title>
+  <link rel="stylesheet" href="bower_components/normalize-css/normalize.css">
+  <link rel="stylesheet" href="wx_share/css/style.css?rev=1e74a141e73a298be65e084554320f6d">
+  <link rel="stylesheet" href="wx_share/css/list.css?rev=ef280317c9aca9742bd7c3430af0db35">
+  <script src="wx_share/js/util.js?rev=56c068a5e13fd8e6df99a8a57a50da5f"></script>
+  <script type="text/javascript">
+      var code = util.getParameterByName('code');
+      var openId;
+  </script>
+    <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?7735ab379e0c352fd0fcfeb3f9248b59";
+      var s = document.getElementsByTagName("script")[0]; 
+      s.parentNode.insertBefore(hm, s);
+    })();
+    </script>
+  <style>
+.list_item:active{
+  background-color: #F3F3F3;
+}
+.default_text{
+margin-top:200px;text-align:center;color:#D1D1D1;
+}
+.ul_container p {
+  margin:5px 0 10px 0;
+}
+.bd_status_text{
+ color:#0f9532;
+}
+.bd_status{
+  position:absolute;right:0;height:17px;line-height:17px; 
+}
+
+.list_item{
+    padding: 10px 30px;
+ }
+@media all and (max-width: 320px)
+{
+  .order_title,.ul_container{
+    font-size:13px;
+  }
+  .list_item{
+    padding: 10px 10px;
+  }
+}
+</style>
+</head>
+<body>
+  <main class="content" ng-view></main>
+  <!-- /content -->
+  <script src="bower_components/jquery/dist/jquery.min.js"></script>
+  <script src="bower_components/angular/angular.min.js"></script>
+  <script src="bower_components/angular-route/angular-route.min.js"></script>
+  <script src="bower_components/angular-cookies/angular-cookies.min.js"></script>
+  <script src="bower_components/angular-resource/angular-resource.min.js"></script>
+  <script src="wx_list/js/app.js?rev=e89a7fe2b28309f2fe327f2cbe8ffdad"></script>
+  <script src="wx_list/js/controllers.js?rev=f228c21dc5630181008d754376f423fc"></script>
+  <script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+  <script src="wx_share/js/wxShare.js?rev=123917cca88395e62eb9f35d1888ee76"></script>
+  <div id="toast" style="display: none;">
+    <div class="weui_mask_transparent"></div>
+    <div class="weui_toast" style="display: table;width:200px;height:100px;left:40%;">
+      <p class="weui_toast_content" style="display:table-cell;vertical-align:middle;">{{server_reason}}</p>
+    </div>
+  </div>
+
+  <script>
+$(function(){
+ $(document).on("click ",".fold",function(){
+          $(this).siblings(".subitem").show();
+          $(this).removeClass("fold").addClass("open");
+       }).on("click ",".open",function(){
+          $(this).siblings(".subitem").hide();
+          $(this).removeClass("open").addClass("fold");
+       })
+
+  /*
+    $(document).on("click touchend",".fold",function(){
+          $(this).siblings(".subitem").show();
+          $(this).removeClass("fold").addClass("open");
+       }).on("click touchend",".open",function(){
+          $(this).siblings(".subitem").hide();
+          $(this).removeClass("open").addClass("fold");
+       })
+  */
+})
+  </script>
+  <script type="text/javascript" src="http://pingjs.qq.com/h5/stats.js" name="MTAH5" sid="500007387" ></script>
+</body>
+</html>

@@ -1,0 +1,77 @@
+
+<style>
+.label{
+	width:220px;
+}
+</style>
+<div id="wrapper" class="wrapper">
+
+	<header class="header">
+		<nav class="header-nav">
+			<a href="#/" class="header-left">
+				<img src="img/return.png" style=""/>
+			</a>
+			<a href="#" class="header-center">支付</a>
+		</nav>
+	</header>
+	<!-- /header -->
+
+	<div style="" class="login_container">
+		<form action="https://api.ipaynow.cn" method="POST"  role="form" id="myForm" >
+			<div class="cell ">
+				<div class="cell_hd">
+					<label class="label">应用ID：</label>
+				</div>
+				<div class="cell_hd cell_primary">
+
+				
+					功能码：<input style="display:none" type=text name="funcode" value="{{data.funcode}}" readonly/>
+					应用ID:<input  style="display:none"  type=text name="appId" value="{{data.appId}}" readonly/>
+					商户订单号：<input   style="display:none" type=text name="mhtOrderNo" value="{{data.mhtOrderNo}}" readonly/>
+					商户订单名称：<input   style="display:none"  type=text name="mhtOrderName" value="{{data.mhtOrderName}}" readonly/>
+					币种：<input  style="display:none"  type=text name="mhtCurrencyType" value="{{data.mhtCurrencyType}}" readonly/>
+					金额：<input  style="display:none"  type=text name="mhtOrderAmt" value="{{data.mhtOrderAmt}}" readonly/>
+					订单类型：<input   style="display:none"  type=text name="mhtOrderType" value="{{data.mhtOrderType}}" readonly/>
+					订单时间：<input style="display:none"  type=text name="mhtOrderStartTime" value="{{data.mhtOrderStartTime}}" readonly/>
+					订单详情：<input type=text name="mhtOrderDetail"  value="{{data.mhtOrderDetail}}"  readonly/><br>
+					后台通知URL：<input  style="display:none"  type=text name="notifyUrl" value="{{data.notifyUrl}}" readonly/>
+					前台通知URL：<input  style="display:none"  type=text name="frontNotifyUrl" value="{{data.frontNotifyUrl}}" readonly/>
+					字符集：<input  style="display:none"  type=text name="mhtCharset" value="{{data.mhtCharset}}" readonly/>
+					设备类型：<input  style="display:none"  type=text name="deviceType" value="{{data.deviceType}}" readonly/>
+					<!--
+					现在支付网关号：<input type=text name="payChannelType" value="{{data.payChannelType}}">
+					-->
+					签名类型：<input   style="display:none"  type=text name="mhtSignType" value="{{data.mhtSignType}}" readonly/>
+					数字签名：<input  style="display:none"  type=text name="mhtSignature" value="{{data.mhtSignature}}" readonly/>
+				
+<!--
+					功能码：<input type=text name="funcode" value="WP001" readonly/><br>
+					应用ID:<input type=text name="appId" value="1410853543946442" readonly/><br>
+					商户订单号：<input type=text name="mhtOrderNo" value="1453275805958" readonly/><br>
+					商户订单名称：<input type=text name="mhtOrderName" value="merchantTest" readonly/><br>
+					币种：<input type=text name="mhtCurrencyType" value="156" readonly/><br>
+					金额：<input type=text name="mhtOrderAmt" value="1" readonly/><br>
+					订单详情：<input type=text name="mhtOrderDetail" value="mhtOrderDetail" readonly/><br>
+					订单类型：<input type=text name="mhtOrderType" value="01" readonly/><br>
+					订单时间：<input type=text name="mhtOrderStartTime" value="20160120154325" readonly/><br>
+					后台通知URL：<input type=text name="notifyUrl" value="http://posp.ipaynow.cn:10808/mobilewaptest/notify" readonly/><br>
+					前台通知URL：<input type=text name="frontNotifyUrl" value="http://posp.ipaynow.cn:10808/mobilewaptest/frontnotify" readonly/><br>
+					字符集：<input type=text name="mhtCharset" value="UTF-8" readonly/><br>
+					设备类型：<input type=text name="deviceType" value="06" readonly/><br>
+					现在支付网关号：<input type=text name="payChannelType" value=""><br>
+					商户保留域：<input type=text name="mhtReserved" value="${mhtReserved}"><br>
+					签名类型：<input type=text name="mhtSignType" value="MD5" readonly/><br>
+					数字签名：<input type=text name="mhtSignature" value="4204253221082e02361efd05a2f20b8f" readonly/><br>
+-->
+				</div>
+				<div class="line"></div>
+			</div>
+
+			<div class="cell" >
+				<a href="javascript:void(0)" class="btn btn_primary"   ng-click="submit()"  id="submitButton"  style="">支付</a>
+			</div>
+		</form>
+	</div>
+
+</div>
+<!-- /wrapper -->

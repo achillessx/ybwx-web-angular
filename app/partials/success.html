@@ -1,0 +1,53 @@
+<style>
+	
+	header img {
+	  max-height: 2rem;
+	  width: 100%;
+	}
+	.container{
+		padding:0.1rem;
+	}
+	.btn_blue{
+		color:#000;
+		border: 1px solid #2f91e4;
+	}
+</style>
+
+<header>
+	<img src="img/success.jpg"  />
+</header>
+<div class="container">
+
+	<form class="" role="form" name="sendForm" novalidate>
+		<div class="cell ">
+			<div class="cell_hd cell_hd_border  cell_primary" style="border-radius: none;" >
+				<input type="email" class="ipt email_input" ng-model="user.email" name="email"  onfocus="this.placeholder = ''" onblur="this.placeholder = '输入电子邮箱'" placeholder="输入电子邮箱" required style="border-radius: none;" />
+			</div>
+			<div class="cell_hd " style="width:400px;border:none;border-radius: none;">
+				<a href="javascript:void(0)" class="btn btn_n_primary " style="border-radius: 0;" ng-click="send_bd()" >发送电子保单</a>
+		
+			</div>
+		</div>
+		<div class="cell"  style="color:red"ng-show="sendForm.email.$dirty && sendForm.email.$invalid ">
+			<small class="error" ng-show="sendForm.email.$error.required">邮箱必填</small>
+			<small class="error" ng-show="sendForm.email.$error.email">邮件格式不正确</small>
+		</div>
+	</form>
+
+	  <div class="cell" style="clear:both;margin-top:30px;">
+                                        <div class="cell_hd cell_primary" >
+                                                <a href="javascript:void(0)" class="btn  btn_blue" ng-click="goList()" >查看保单</a>
+                                        </div>
+
+                                        <!--
+                                         <div class="cell_hd cell_primary" >
+                                               
+                                        </div>
+                                        <div class="cell_hd cell_primary" >
+                                                <a href="javascript:void(0)" class="btn btn_blue"  ng-click="showShareTip()" >立即分享</a>
+                                        </div>
+                                        -->
+
+                </div>
+
+</div>

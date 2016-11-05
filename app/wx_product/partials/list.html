@@ -1,0 +1,22 @@
+ 
+<div id="wrapper" class="wrapper" >
+ <ul class="ul_container"  data-ng-init="init()">
+
+      <li class="list_item" ng-click="goDetail(item.id)"   ng-repeat="item in list">
+        <div  class="img_box">
+          <img src="wx_share/img/plane_pd.jpg" class="order_img"></div>
+        <div class="small_container" >
+          <p class="h_title">{{item.name}}</p>
+          <p class="desc">{{item.description}}</p>
+          <div class="bottom_container">
+            <div class="money_container"  >
+              <span class="money">{{item.minSellingPrice}}</span>
+              元起
+            </div>
+            <div class="small_btn">立即投保</div>
+          </div>
+        </div>
+      </li>
+    </ul>
+   
+  </div>

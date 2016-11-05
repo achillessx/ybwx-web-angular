@@ -1,0 +1,196 @@
+<style>
+.header-nav
+{
+    line-height: 50px;
+
+    position: relative;
+
+    width: 100%;
+    height: 50px;
+
+    text-align: center;
+
+    background: #d7d7d7;
+}
+
+.header-nav .header-left
+{
+    position: absolute;
+    left: 10px;
+
+    display: block;
+}
+.header-nav .header-left img
+{
+    width: 40px;
+    vertical-align: middle;
+}
+
+.header-nav .header-center
+{
+    font-size: 18px;
+    font-weight: normal;
+    color:#767676;
+}
+.ul_container{
+	font-size:15px;
+	line-height: 40px;
+	padding-left: 0;
+}
+.list_item div{
+	position: relative;
+	overflow: auto;
+}
+.list_item div:after
+{
+	content:'';
+	clear:both;
+	position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    -webkit-transform: scaleY(.5);
+            transform: scaleY(.5);
+    -webkit-transform-origin: 0 0;
+            transform-origin: 0 0;
+    border-top: 1px solid #d9d9d9;
+}
+
+.fold:before{
+  content: " ";
+  display: inline-block;
+  -webkit-transform: rotate(135deg);
+  -ms-transform: rotate(135deg);
+  transform: rotate(135deg);
+  height: 6px;
+  width: 6px;
+  border-width: 2px 2px 0 0;
+  border-color: #C8C8CD;
+  border-style: solid;
+  position: relative;
+  top: -2px;
+  position: absolute;
+  top: 40%;
+  right: 2px;
+  margin-top: -3px;
+}
+.fold:active,.open:active{
+	background-color: #F3F3F3;
+}
+.open:before{
+ content: " ";
+  display: inline-block;
+  -webkit-transform: rotate(315deg);
+  -ms-transform: rotate(315deg);
+  transform: rotate(315deg);
+  height: 6px;
+  width: 6px;
+  border-width: 2px 2px 0 0;
+  border-color: #C8C8CD;
+  border-style: solid;
+  position: relative;
+  top: -2px;
+  position: absolute;
+  top: 50%;
+  right: 2px;
+  margin-top: -3px;
+}
+.subitem{
+	background-color: #F3F3F3;
+	display:none;
+}
+.fold,.open{
+	cursor:pointer;
+}
+.bd_color{
+  color: #4C4C4C;
+}
+.bd_strong{
+  color:#247ad1;
+}
+</style>
+
+<div id="wrapper" class="wrapper">
+<header >
+		<nav class="header-nav">
+			<a href="#/list" class="header-left">
+				<img src="wx_share/img/detail_left.png" >
+			</a>
+			<a href="#" class="header-center">保单详情</a>
+		</nav>
+	</header>
+		<ul class="ul_container" >
+
+
+			<li class="list_item" >
+				<div > {{order.order_name}}<span class="fr bd_status_text " >{{order.order_status_text}}</span> </div>
+			
+				<div >保险公司<span class="fr bd_color">{{order.insurance_company_name}}</span></div>
+				<div > 保单号<span class="fr bd_color">{{order.policy_no}}</span></div>
+				
+				<div > 投保时间<span class="fr bd_color">{{order.create_time  |  date:'yyyy-MM-dd HH:mm:ss' }}</span></div>
+				
+				<div > 生效时间<span class="fr bd_color">{{order.effective_date |  date:'yyyy-MM-dd 00:00:00'}}</span></div>
+				
+				<div > 截止时间<span class="fr bd_color">{{order.ineffective_date |  date:'yyyy-MM-dd 23:59:59'}}</span></div>
+				
+				<div >保费<span class="fr red">￥{{order.order_amount| number:2}}</span></div>
+				
+				<div >保额<span class="fr red">￥{{order.sum_insured | number:2 }}</span></div>
+			</li>
+	
+
+			<li class="list_item" >
+				<div>	
+					<div class="fold" ><span class="fl ">保单内容</span></div>
+					<div class="subitem" ><span class="fl bd_color"> {{order.effective_date  |  date:'yyyy-MM-dd 00:00:00' }} 至 {{order.ineffective_date |  date:'yyyy-MM-dd 23:59:59'}}</span></div>
+					<div class="subitem" ><span class="fl bd_color"> 飞机人身意外身故100万</span></div>
+					<div class="subitem" ><span class="fl bd_color"> 飞机人身意外残疾100万</span></div>
+				</div>
+				
+				<div > 电子保单<a href="{{order.policy_url}}" target="_blank"><span class="fr bd_strong">查看</span></a><span class="fr bd_strong"   style="margin-right:25px;" ng-click="showDialog()">发送</span></div>
+			</li>
+			<li class="list_item" >
+				<div>
+
+					<div class="fold">投保人<span class="fr bd_color" style="margin-right:25px;">{{order.name}}</span></div>
+					<div class="subitem" > 手机号<span class="fr bd_color">{{order.mobile}}</span></div>
+					<div  class="subitem"> 身份证<span class="fr bd_color">{{order.social_id}}</span></div>
+
+				</div>
+				<div>
+					<div class="fold"> 被保人<span class="fr bd_color"  style="margin-right:25px;">{{order.insured_name}}</span></div>
+					<div class="subitem">手机号<span class="fr bd_color">{{order.insured_mobile}}</span></div>
+					<div class="subitem"> 身份证<span class="fr bd_color">{{order.insured_social_id}}</span></div>
+				</div>
+				<div> 生存受益人<span class="fr bd_color"  >无</span></div>
+				<div> 身故受益人<span class="fr bd_color"  >法定</span></div>
+			</li>
+		</ul>
+</div>
+  <div class="weui_dialog_confirm" id="email_dialog" style="display:none">
+    <form class="" role="form" name="sendForm" novalidate>
+      <div class="weui_mask"></div>
+      <div class="weui_dialog">
+        <div class="weui_dialog_bd">
+          <input type="email"  style="border:1px solid #D7D7D7" class="ipt" ng-minlength="1"  name="email" ng-model="user.email" required   onfocus="this.placeholder = ''" onblur="this.placeholder = '输入电子邮箱'" placeholder="输入电子邮箱" />
+        </div>
+        <div  style="color:red;text-align:left;padding:0 20px;"
+                          ng-show="sendForm.email.$dirty && sendForm.email.$invalid ">
+          <small class="error" ng-show="sendForm.email.$error.required">邮箱必填</small>
+          <small class="error" ng-show="sendForm.email.$error.email">邮件格式不正确</small>
+        </div>
+        <div class="weui_dialog_ft">
+          <div class="cell_hd " style="width:1000px;border:none">
+            <a href="javascript:void(0)" class="btn btn_disabled  " ng-click="hideDialog()" >取消</a>
+          </div>
+          <div class="cell_hd" style="width:200px;border:none"></div>
+
+          <div class="cell_hd " style="width:1000px;border:none">
+            <a href="javascript:void(0)" class="btn btn_warning "    ng-click="send_bd()" >发送电子保单</a>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>

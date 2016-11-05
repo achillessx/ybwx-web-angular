@@ -1,0 +1,136 @@
+<div id="wrapper" class="wrapper">
+
+	<header class="header">
+		 <a href="wx_coupon_list.html" class="header-return">
+				<img src="wx_share/img/tg_return.png" style=""/>
+			</a>
+			<div class="header-title">
+					<b>天安人寿</b>100万航空意外险
+			</div>
+			<div class="header-sub-title">
+				<div class="fl">
+					<img src="wx_share/img/tg_plane.png" />
+				</div>
+				<div class="fl">
+					<p>飞机人身意外伤害身故及</p>
+					<p>伤残最高赔付100万元</p>
+				</div>
+			</div>
+		<div> 
+		</div>
+
+	</header>
+	<!-- /header -->
+	<div style="" class="container">
+		<form class="" role="form" name="registration" novalidate>
+			<div class="cell_title strong">
+				请填写个人信息
+				<div class="line"></div>
+			</div>
+
+			<div class="cell_sub_title ">姓名</div>
+			<div class="cell">
+				<div class="cell_hd cell_hd_border cell_primary">
+					<input type="text" class="ipt" ng-minlength="1"  name="username" ng-model="user.username" required chinese />
+				</div>
+			</div>
+			<div class="cell"  style="color:red"
+            ng-show="registration.username.$dirty && registration.username.$invalid || username_server_reason">
+					<small class="error" 
+            ng-show="registration.username.$error.required">姓名必填</small>
+            	<small class="error"  ng-show="registration.username.$error.chinese">姓名必须是汉字!</small>
+                    <small class="error" ng-show="username_server_reason">{{username_server_reason}}</small>
+			</div>
+
+            <div class="cell_sub_title ">身份证</div>
+
+            <!--
+			<div class="cell ">
+				<div class="cell_hd weui_select_before" style="">
+						<select class="ui_select strong" name="card_type"  ng-model="user.card_type">
+                                <option value="1">身份证</option>
+                                <option value="2">港澳通行证</option>
+                                <option value="3">台湾通行证</option>
+                                <option value="4">护照</option>
+                        </select>
+				</div>
+				<div class="cell_hd " style="padding-left:10px;border:none;">
+				</div>
+				<div class="cell_hd cell_primary">
+					<input type="text" class="ipt"  name="social_id" ng-model="user.social_id" required />
+				</div>
+			</div>
+			-->
+
+
+			<div class="cell ">
+				<div class="cell_hd cell_hd_border cell_primary">
+					<input type="text" class="ipt" ng-minlength="18" ng-maxlength="18"  name="social_id" ng-model="user.social_id" required />
+				</div>
+			</div>
+
+
+			<div class="cell"  style="color:red"
+            ng-show="registration.social_id.$dirty && registration.social_id.$invalid || card_numer_server_reason">
+					<small class="error" ng-show="registration.social_id.$error.required">身份证必填</small>
+					<small class="error" 
+                ng-show="registration.social_id.$error.minlength">身份证必须是18位</small>
+					<small class="error" 
+                ng-show="registration.social_id.$error.maxlength">身份证必须是18位</small>
+                    <small class="error" ng-show="card_numer_server_reason">{{card_numer_server_reason}}</small>
+			</div>
+			<div class="cell_sub_title ">手机号码</div>
+			<div class="cell">
+				<div class="cell_hd cell_hd_border cell_primary">
+					<input type="number" class="ipt" ng-minlength="11" ng-maxlength="11" name="mobile" ng-model="user.mobile" required />
+				</div>
+			</div>
+			<div class="cell"  style="color:red"
+            ng-show="registration.mobile.$dirty && registration.mobile.$invalid || mobile_server_reason">
+					<small class="error" 
+            ng-show="registration.mobile.$error.required">手机号必填</small>
+					<small class="error" 
+                ng-show="registration.mobile.$error.minlength">手机号必须是11位数字</small>
+					<small class="error" 
+                ng-show="registration.mobile.$error.maxlength">手机号必须是11位数字</small>
+                    <small class="error" ng-show="mobile_server_reason">{{mobile_server_reason}}</small>
+			</div>
+
+			<div class="cell_sub_title ">保障日期</div>
+			<div class="cell ">
+				<div class="cell_hd cell_hd_border cell_primary weui_select_before" style="border-right:none">
+					<input type="date" class="ipt "  placeholder="yyyy-MM-dd" min="{{minDate | date:'yyyy-MM-dd'}}" max="2017-02-28" name="insurance_date" ng-model="user.insurance_date" required  />
+				</div>
+				<div class="cell_hd cell_hd_border " style="color:#D9D9D9;padding:0 4px;border-left:none">
+					 保障24小时
+				</div>
+			</div>
+			<div class="cell"  style="color:red"
+            ng-show="registration.insurance_date.$dirty && registration.insurance_date.$invalid || insurance_date_server_reason">
+            <!--
+					<small class="error" ng-show="registration.insurance_date.$error.required">保障日期必填</small>-->
+            	<small class="error" ng-show="registration.insurance_date.$error.min">保障日期最早从明天开始</small>
+            	<small class="error" ng-show="registration.insurance_date.$error.max">保障日期超过最大日期2017年2月28日</small>
+                    <small class="error" ng-show="insurance_date_server_reason">{{insurance_date_server_reason}}</small>
+			</div>
+			<div class="cell_title " style="font-size:15px;">
+				保费：原价<span class="strong">20</span>元 <span class="fr">由<span class="strong">诺贝保险管家</span>免费赠送</span>
+				<div class="line"></div>
+			</div>
+			<div class="cell_title ">
+				<input type="checkbox" style="width:20px;height:20px; vertical-align:middle;"   ng-model="user.know_contract" name="know_contract" required > 我已阅读<a href="contract.html" target="_blank"><span class="strong">投保须知</span></a>和<a href="http://static.youbaowuxian.com/file/contract.pdf" target="_blank"><span class="strong">产品条款</span></a>
+				<div class="line"></div>
+			</div>
+			<div class="cell"  style="color:red" ng-show="server_reason">
+                    <small class="error" ng-show="server_reason">{{server_reason}}</small>
+			</div>
+			<div class="cell" >
+				<a href="javascript:void(0)" class=""  ng-class="registration.$invalid  ? 'btn btn_primary btn_disabled' : 'btn btn_primary' "  ng-click='submit()' id="submitButton"  style="">确认投保</a>
+			
+			</div>
+		</form>
+	</div>
+
+</div>
+
+<!-- /wrapper -->

@@ -1,0 +1,44 @@
+<div id="wrapper" class="wrapper">
+
+	<header class="header">
+		<nav class="header-nav">
+			<a href="#/" class="header-left">
+				<img src="img/return.png" style=""/>
+			</a>
+			<a href="#" class="header-center">诺贝免费赠送航空意外险</a>
+		</nav>
+	</header>
+	<!-- /header -->
+	<div style="" class="login_container">
+	<div style="height:1px;" >  </div>
+		<form class="" role="form" name="registration" novalidate>
+			<div class="cell ">
+				<h3>被保人信息</h3> <div class="line"></div>
+
+			</div>
+			<div class="cell">
+					<label class="label" style="line-height:20px;">手机号</label>
+				<div class="cell_hd cell_primary">
+					<input type="number" class="ipt" ng-minlength="11" ng-maxlength="11" name="mobile" ng-model="user.mobile" required />
+				</div>
+			
+			</div>
+			<div class="cell"  style="color:red"
+            ng-show="registration.mobile.$dirty && registration.mobile.$invalid || vercode_server_reason">
+					<small class="error" 
+            ng-show="registration.mobile.$error.required">手机号必填</small>
+					<small class="error" 
+                ng-show="registration.mobile.$error.minlength">手机号必须是11位数字</small>
+					<small class="error" 
+                ng-show="registration.mobile.$error.maxlength">手机号必须是11位数字</small>
+                    <small class="error" ng-show="vercode_server_reason">{{vercode_server_reason}}</small>
+				</div>
+			<div class="cell" >
+				<a href="javascript:void(0)" class=""  ng-class="registration.$invalid ? 'btn btn_primary btn_disabled' : 'btn btn_primary' "  ng-click='submit()' id="submitButton"  style="">确认投保</a>
+			
+			</div>
+		</form>
+	</div>
+
+</div>
+<!-- /wrapper -->
